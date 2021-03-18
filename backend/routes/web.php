@@ -1,5 +1,9 @@
 <?php
 
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,20 +15,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 // User
 Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     // ログイン認証関連
     Auth::routes([
         'register' => true,
-        'reset' => false,
+        'reset' => true,
         'verify' => false,
     ]);
 
@@ -37,18 +41,18 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
 });
 
 // Administrator
-Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
-    // ログイン認証関連
-    Auth::routes([
-        'register' => true,
-        'reset' => false,
-        'verify' => false,
-    ]);
+// Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
+//     // ログイン認証関連
+//     Auth::routes([
+//         'register' => true,
+//         'reset' => false,
+//         'verify' => false,
+//     ]);
 
-    // ログイン認証後
-    Route::middleware('auth:admin')->group(function () {
+//     // ログイン認証後
+//     Route::middleware('auth:admin')->group(function () {
 
-        // トップページ
-        Route::resource('home', 'HomeController', ['only' => 'index']);
-    });
-});
+//         // トップページ
+//         Route::resource('home', 'HomeController', ['only' => 'index']);
+//     });
+// });
