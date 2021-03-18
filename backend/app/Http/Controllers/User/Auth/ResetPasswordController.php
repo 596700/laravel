@@ -41,11 +41,6 @@ class ResetPasswordController extends Controller
         );
     }
 
-    /**
-    * パスワードリセットの間、使用されるガードの取得
-    *
-    * @return \Illuminate\Contracts\Auth\StatefulGuard
-    */
     protected function guard()
     {
         return Auth::guard('user');
