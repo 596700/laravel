@@ -29,7 +29,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     Auth::routes([
         'register' => true,
         'reset' => true,
-        'verify' => false,
+        'verify' => true,
     ]);
 
     // ログイン認証後
