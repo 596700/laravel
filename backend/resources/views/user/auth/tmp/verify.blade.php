@@ -1,12 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.user.app')
 
-@section('title', 'ユーザーアクティベーション')
-
-    @include('layouts.nav')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Verify Your Email Address') }}</div>
 

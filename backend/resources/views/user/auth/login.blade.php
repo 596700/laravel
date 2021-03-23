@@ -1,67 +1,57 @@
-@extends('layouts.user.app')
+@extends('layouts.app')
+
+@section('title', 'ログイン')
+
+    @include('layouts.nav')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
+                <form class="border border-light p-5" method="POST" action="{{ route('user.login') }}">
+                    @csrf
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('user.login') }}">
-                        @csrf
+                    <p class="h4 mb-4 text-center">Sign in</p>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="メールアドレス" name="email" value="{{ old('email') }}">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="パスワード" name="password">
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember" name="remember">
+                                <label class="custom-control-label" for="remember">Remember me</label>
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <div>
+                            <a href="">Forgot password?</a>
                         </div>
+                    </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="text-center">
+                        <p>Not a member?
+                            <a href="{{ route('user.register') }}">Register</a>
+                        </p>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                        <p>or sign in with:</p>
+                        <a type="button" class="light-blue-text mx-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a type="button" class="light-blue-text mx-2">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a type="button" class="light-blue-text mx-2">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a type="button" class="light-blue-text mx-2">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
 @endsection

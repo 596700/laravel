@@ -1,4 +1,8 @@
-@extends('layouts.user.app')
+@extends('layouts.app')
+
+@section('title', 'Confirm Password')
+
+    @include('layouts.nav')
 
 @section('content')
 <div class="container">

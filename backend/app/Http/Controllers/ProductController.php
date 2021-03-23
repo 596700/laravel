@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class HomeController extends Controller
     public function index()
     {
         //
-        $this->middleware('auth:user');
-        
-        return view('user.index');
+        $products = Product::with('user')->get();
+        return view('products/index', compact('products'));
     }
 
     /**
@@ -28,7 +27,6 @@ class HomeController extends Controller
     public function create()
     {
         //
-        return view('user.home');
     }
 
     /**

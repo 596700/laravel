@@ -1,77 +1,49 @@
-@extends('layouts.user.app')
+@extends('layouts.app')
+
+@section('title', 'ユーザー登録')
+
+    @include('layouts.nav')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('user.register') }}">
-                        @csrf
+@include('layouts.error_card_list')
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
+                <form class="border border-light p-5" method="POST" action="{{ route('user.register') }}">
+                    @csrf
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                    <p class="h4 mb-4 text-center">ユーザー登録</p>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    <div class="form-group row">
+                        <input class="form-control" id="defaultRegisterFormUserName" type="text" placeholder="ユーザー名"
+                            name="name" value="{{ old('name') }}">
+                    </div>
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                    <div class="form-group row">
+                        <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="メールアドレス"
+                            name="email" value="{{ old('email') }}">
+                    </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                    <div class="form-group row">
+                        <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="パスワード"
+                            aria-describedby="defaultRegisterFormPasswordHelpBlock" name="password">
+                    </div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                    <div class="form-group row">
+                        <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="パスワード(確認)"
+                            aria-describedby="defaultRegisterFormPasswordHelpBlock" name="password_confirmation">
+                    </div>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                    <div class="form-group row">
+                        <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">Minimal 8 characters
+                            lenght</small>
+                    </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                    <button class="btn btn-info my-4 btn-block" type="submit">登録</button>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
 @endsection

@@ -40,6 +40,9 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     });
 });
 
+// Route::resource('product', 'ProductController');
+
+
 // Administrator
 // Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 //     // ログイン認証関連

@@ -1,9 +1,13 @@
-@extends('layouts.user.app')
+@extends('layouts.app')
+
+@section('title', 'aaaaa')
+
+    @include('layouts.nav')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
             <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
