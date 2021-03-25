@@ -3,17 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProduct;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\UpdateProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-
     public function __construct()
     {
         $this->authorizeResource(Product::class, 'product');
-        $this->middleware('verified')->only('create');
     }
 
     /**
@@ -61,42 +60,47 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(int $id)
     {
         //
-        // $product = Product::findOrFail($product);
+        $product = Product::findOrFail($id);
+        if (Auth::user()->id === $product->user_id) {
 
-        return view('product/show', ['product' => $product]);
+            return view('product/show', compact('product'));
+        }
+
+        return redirect('product');
+        
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
         //
-        // $product = Product::findOrFail($product);
+        $product = Product::findOrFail($id);
 
-        return view('product/edit', ['product' => $product]);
+        return view('product/edit', compact('product'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(UpdateProduct $request, $id)
     {
         //
-        // $product = Product::findOrFail($product);
+        $product = Product::findOrFail($id);
         $product->fill($request->all())->save();
 
         return redirect('product');
@@ -105,14 +109,13 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
         //
-        // $product = Product::findOrFail($product)->delete();
-        $product->delete();
+        $product = Product::findOrFail($id)->delete();
 
         return redirect('product');
     }

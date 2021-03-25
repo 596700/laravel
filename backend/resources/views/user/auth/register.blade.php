@@ -2,9 +2,9 @@
 
 @section('title', 'ユーザー登録')
 
-    @include('layouts.nav')
-
 @section('content')
+
+@include('layouts.nav')
 
 @include('layouts.error_card_list')
     <div class="container">
