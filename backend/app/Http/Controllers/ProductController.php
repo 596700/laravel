@@ -23,8 +23,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
-        $products = Product::with('user')->get();
+        $products = Product::with('user')->simplePaginate(20);
         return view('product/index', compact('products'));
     }
 
@@ -35,7 +34,6 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
         return view('product/create');
     }
 
@@ -47,7 +45,6 @@ class ProductController extends Controller
      */
     public function store(StoreProduct $request)
     {
-        //
         $validated = $request->validated();
         $product = new Product;
 
@@ -66,8 +63,6 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
-        // $product = Product::findOrFail($product);
 
         return view('product/show', ['product' => $product]);
     }
@@ -80,9 +75,6 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
-        // $product = Product::findOrFail($product);
-
         return view('product/edit', ['product' => $product]);
     }
 
@@ -95,8 +87,6 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
-        // $product = Product::findOrFail($product);
         $product->fill($request->all())->save();
 
         return redirect('product');
@@ -110,10 +100,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
-        // $product = Product::findOrFail($product)->delete();
         $product->delete();
-
+        
         return redirect('product');
     }
 }

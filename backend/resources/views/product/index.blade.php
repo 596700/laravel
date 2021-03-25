@@ -20,12 +20,18 @@
                 @foreach ($products as $product)
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
-                        <td><a href="{{ route('product.show', ['product' => $product->id]) }}"> {{ $product->name }}</a></td>
+                        <td><a href="{{ route('product.show', ['product' => $product->id]) }}"> {{ $product->name }}</a>
+                        </td>
                         <td><a href="{{ $product->vendor_url }}">{{ $product->vendor_url }}</a></td>
                         <td>{{ $product->part }}</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            {{ $products->links() }}
+        </div>
     </div>
 @endsection
