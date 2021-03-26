@@ -21,10 +21,21 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::with('user')->simplePaginate(20);
-        return view('product/index', compact('products'));
+        $keyword = $request->input('keyword');
+
+        $query = Product::with('user')->simplePaginate(20);
+
+        if ($keyword) {
+            $query = Product::with('user')
+            ->where('name', 'LIKE', "%{$keyword}%")
+            ->simplePaginate(20);
+        }
+
+        $products = $query;
+
+        return view('product/index', compact('products', 'keyword'));
     }
 
     /**
