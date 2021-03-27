@@ -7,6 +7,7 @@
     @include('layouts.nav')
 
     <div class="container">
+        @include('layouts.error_card_list')
         <div class="row justify-content-center">
             <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
 

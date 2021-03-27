@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\IndexProduct;
 use App\Http\Requests\StoreProduct;
+use App\Http\Requests\UpdateProduct;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -96,7 +97,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(UpdateProduct $request, Product $product)
     {
         $product->fill($request->all())->save();
 

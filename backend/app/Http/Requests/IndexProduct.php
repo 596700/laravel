@@ -25,7 +25,7 @@ class IndexProduct extends FormRequest
     {
         return [
             //
-            'keyword' => ['string', 'max:50'],
+            'keyword' => ['alpha_dash', 'max:50'],
         ];
     }
 }

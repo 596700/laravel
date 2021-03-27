@@ -25,7 +25,7 @@ class StoreProduct extends FormRequest
     {
         return [
             //
-            'name' => ['required', 'string', 'unique:products'],
+            'name' => ['required', 'alpha_dash', 'unique:products'],
             'vendor_url' => ['required', 'active_url'],
             'part' => ['required', 'regex:/Hawrdware|Operating System|Application/'],
         ];

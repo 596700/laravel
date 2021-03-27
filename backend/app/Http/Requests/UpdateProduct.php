@@ -26,7 +26,7 @@ class UpdateProduct extends FormRequest
     {
         return [
             // Rule::unique('products')->ignore($this->id)
-            'name' => ['required', 'string'],
+            'name' => ['required', 'alpha_dash'],
             'vendor_url' => ['required', 'active_url'],
             'part' => ['required', 'regex:/Hardware|Operating System|Application/'],
         ];
