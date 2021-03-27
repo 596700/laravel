@@ -145,6 +145,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'keyword' => '検索ワード',
+        
+    ],
 
 ];

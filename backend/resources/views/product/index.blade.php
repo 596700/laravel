@@ -9,8 +9,10 @@
     <form class="form-inline d-flex float-right md-form form-sm mt-0" action="{{ route('product.index') }}">
         <i class="fas fa-search" aria-hidden="true"></i>
         <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search"
-            name="keyword" value="{{ $keyword }}">
+            name="keyword" value="{{ empty(old()) ? $keyword : old('keyword') }}">
     </form>
+
+    @include('layouts.error_card_list')
 
     @if ($products->count())
         <div class="table-responsive text-nowrap">

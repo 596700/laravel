@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\IndexProduct;
 use App\Http\Requests\StoreProduct;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
@@ -21,16 +22,15 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(IndexProduct $request)
     {
-        $keyword = $request->input('keyword');
+        $keyword = $request->input('keyword', '');
 
-        $query = Product::with('user')->simplePaginate(20);
+        $query = Product::simplePaginate(20);
 
         if ($keyword) {
-            $query = Product::with('user')
-            ->where('name', 'LIKE', "%{$keyword}%")
-            ->simplePaginate(20);
+            $query = Product::where('name', 'LIKE', "%{$keyword}%")
+                            ->simplePaginate(20);
         }
 
         $products = $query;
