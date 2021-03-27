@@ -28,7 +28,11 @@ class UpdateProduct extends FormRequest
             // Rule::unique('products')->ignore($this->id)
             'name' => ['required', 'alpha_dash'],
             'vendor_url' => ['required', 'active_url'],
-            'part' => ['required', 'regex:/Hardware|Operating System|Application/'],
+            'part' => [
+                'required',
+                Rule::in(['Hardware', 'Operating System', 'Application'])
+            ],
+            // 'part' => ['required', 'regex:/Hardware|Operating System|Application/'],
         ];
     }
 }

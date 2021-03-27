@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreProduct extends FormRequest
 {
@@ -27,7 +28,11 @@ class StoreProduct extends FormRequest
             //
             'name' => ['required', 'alpha_dash', 'unique:products'],
             'vendor_url' => ['required', 'active_url'],
-            'part' => ['required', 'regex:/Hawrdware|Operating System|Application/'],
+            'part' => [
+                'required',
+                Rule::in(['Hardware', 'Operating System', 'Application'])
+            ],
+            // 'part' => ['required', 'regex:/Hawrdware|Operating System|Application/'],
         ];
     }
 }
