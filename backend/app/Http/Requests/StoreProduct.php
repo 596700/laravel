@@ -32,7 +32,6 @@ class StoreProduct extends FormRequest
                 'required',
                 Rule::in(['Hardware', 'Operating System', 'Application'])
             ],
-            // 'part' => ['required', 'regex:/Hawrdware|Operating System|Application/'],
         ];
     }
 }

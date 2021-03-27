@@ -32,7 +32,6 @@ class UpdateProduct extends FormRequest
                 'required',
                 Rule::in(['Hardware', 'Operating System', 'Application'])
             ],
-            // 'part' => ['required', 'regex:/Hardware|Operating System|Application/'],
         ];
     }
 }
