@@ -29,7 +29,7 @@ class VersionController extends Controller
         $query = Version::simplePaginate(20);
 
         if ($keyword) {
-            $query = Version::where('name', 'LIKE', "%{$keyword}%")
+            $query = Version::where('version', 'LIKE', "%{$keyword}%")
                             ->simplePaginate(20);
         }
 
