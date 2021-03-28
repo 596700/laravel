@@ -18,7 +18,7 @@ class CreateProductVersionsTable extends Migration
             $table->unsignedBigInteger('product_id')->nullable();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('set null');
             $table->unsignedBigInteger('version_id')->nullable();
-            $table->foreign('version_id')->references('id')->on('products')->onDelete('set null');
+            $table->foreign('version_id')->references('id')->on('versions')->onDelete('set null');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->timestamps();
