@@ -36,8 +36,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">Minimal 8 characters
-                            lenght</small>
+                        <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">パスワードは8文字以上の英数字記号にしてください</small>
                     </div>
 
                     <button class="btn btn-info my-4 btn-block" type="submit">登録</button>
