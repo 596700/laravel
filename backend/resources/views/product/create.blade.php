@@ -20,6 +20,9 @@
                     <input type="text" id="defaultSaveFormProductName" class="form-control" placeholder="製品名"
                         value="{{ old('name') }}" name="name">
 
+                    <small id="defaultRegisterFormProductHelpBlock"
+                        class="form-text text-muted mb-4">製品名は英数字記号(-_)にしてください</small>
+
                     <input type="text" id="defaultSaveFormVendorURL" class="form-control" placeholder="ベンダURL"
                         value="{{ old('vendor_url') }}" name="vendor_url">
 

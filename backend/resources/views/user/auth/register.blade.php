@@ -4,9 +4,9 @@
 
 @section('content')
 
-@include('layouts.nav')
+    @include('layouts.nav')
 
-@include('layouts.error_card_list')
+    @include('layouts.error_card_list')
     <div class="container">
         <div class="row">
             <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
@@ -36,7 +36,8 @@
                     </div>
 
                     <div class="form-group row">
-                        <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">パスワードは8文字以上の英数字記号にしてください</small>
+                        <small id="defaultRegisterFormPasswordHelpBlock"
+                            class="form-text text-muted mb-4">パスワードは8文字以上の英数字記号にしてください</small>
                     </div>
 
                     <button class="btn btn-info my-4 btn-block" type="submit">登録</button>

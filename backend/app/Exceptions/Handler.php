@@ -52,13 +52,13 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
          // TokenMismatchException 例外発生時
-         if($exception instanceof \Illuminate\Session\TokenMismatchException) {
+         if ($exception instanceof \Illuminate\Session\TokenMismatchException) {
             // ログアウトリクエスト時は、強制的にログアウト
-            if($request->is('logout')) {
+            if ($request->is('user.logout')) {
                 Auth::logout();
             }
         }
-        
+
         return parent::render($request, $exception);
     }
 }
