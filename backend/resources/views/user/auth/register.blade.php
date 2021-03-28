@@ -33,12 +33,12 @@
                     <div class="form-group row">
                         <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="パスワード(確認)"
                             aria-describedby="defaultRegisterFormPasswordHelpBlock" name="password_confirmation">
-                    </div>
-
-                    <div class="form-group row">
                         <small id="defaultRegisterFormPasswordHelpBlock"
                             class="form-text text-muted mb-4">パスワードは8文字以上の英数字記号にしてください</small>
                     </div>
+
+
+
 
                     <button class="btn btn-info my-4 btn-block" type="submit">登録</button>
 
