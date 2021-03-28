@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class IndexProduct extends FormRequest
+class StoreVersion extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class IndexProduct extends FormRequest
     public function rules()
     {
         return [
-            'keyword' => ['alpha_dash', 'max:50'],
+            'version' => ['required', 'regex:/^[a-zA-Z0-9\-.]+$/', 'unique:versions'],
         ];
     }
 }
