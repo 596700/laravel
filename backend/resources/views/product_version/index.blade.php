@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', '製品一覧')
+@section('title', '製品/バージョン一覧')
 
 @section('content')
 
@@ -9,32 +9,28 @@
     <div class="container">
         @include('layouts.error_card_list')
 
-        <form class="form-inline d-flex float-right md-form form-sm mt-0" action="{{ route('product.index') }}">
+        <form class="form-inline d-flex float-right md-form form-sm mt-0" action="{{ route('product_version.index') }}">
             <i class="fas fa-search" aria-hidden="true"></i>
             <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search"
                 name="keyword" value="{{ empty(old()) ? $keyword : old('keyword') }}">
         </form>
 
-        @if ($products->count())
+        @if ($product_versions->count())
             <div class="table-responsive text-nowrap">
                 <table class="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">製品名</th>
-                            <th scope="col">ベンダURL</th>
-                            <th scope="col">種別</th>
+                            <th scope="col">製品/バージョン</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($products as $product)
+                        @foreach ($product_versions as $product_version)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
-                                <td title="製品詳細"><a href="{{ route('product.show', ['product' => $product->id]) }}">
-                                        {{ $product->name }}</a>
+                                <td title="製品/バージョン詳細"><a href="{{ route('product_version.show', ['product_version' => $product_version->id]) }}">
+                                        {{ $product_version->product->name }}/{{ $product_version->version->version }}</a>
                                 </td>
-                                <td title="URLへジャンプ"><a href="{{ $product->vendor_url }}">{{ $product->vendor_url }}</a></td>
-                                <td>{{ $product->part }}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -42,7 +38,7 @@
             </div>
             <div class="container">
                 <div class="row justify-content-center">
-                    {{ $products->appends(request()->input())->links() }}
+                    {{ $product_versions->appends(request()->input())->links() }}
                 </div>
             </div>
     </div>

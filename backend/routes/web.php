@@ -42,6 +42,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
 
 Route::resource('product', 'ProductController');
 Route::resource('version', 'VersionController');
+Route::resource('product_version', 'ProductVersionController');
 
 
 // Administrator

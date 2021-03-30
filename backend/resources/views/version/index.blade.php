@@ -38,7 +38,7 @@
             </div>
             <div class="container">
                 <div class="row justify-content-center">
-                    {{ $versions->links() }}
+                    {{ $versions->appends(request()->input())->links() }}
                 </div>
             </div>
     </div>

@@ -13,14 +13,14 @@ class ProductVersion extends Model
 
     protected $fillable = ['product_id', 'version_id'];
 
-    public function product(): BelongsToMany
+    public function product(): BelongsTo
     {
-        return $this->belongsToMany('App\Models\Product');
+        return $this->belongsTo('App\Models\Product');
     }
 
-    public function version(): BelongsToMany
+    public function version(): BelongsTo
     {
-        return $this->belongsToMany('App\Models\Version');
+        return $this->belongsTo('App\Models\Version');
     }
 
     public function user(): BelongsTo
