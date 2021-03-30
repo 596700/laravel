@@ -8,7 +8,6 @@ use App\Http\Requests\UpdateProductVersion;
 use App\Models\Product;
 use App\Models\ProductVersion;
 use App\Models\Version;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ProductVersionController extends Controller

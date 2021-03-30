@@ -26,7 +26,7 @@
                     <input type="text" id="defaultSaveFormVendorURL" class="form-control" placeholder="ベンダURL"
                         value="{{ old('vendor_url') }}" name="vendor_url">
 
-                    <select class="mdb-select md-form mb-4 initialized" id="select" name="part" required>
+                    <select class="browser-default custom-select" id="select" name="part" required>
                         <option value="" disabled selected>Choose your option</option>
                         <option value="Hardware">Hardware</option>
                         <option value="Operating System">Operating System</option>
