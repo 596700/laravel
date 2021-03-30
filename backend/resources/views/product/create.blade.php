@@ -16,23 +16,27 @@
 
                     <p class="h4 mb-4 text-center">製品登録</p>
 
+                    <div class="form-group row">
+                        <input type="text" id="defaultSaveFormProductName" class="form-control" placeholder="製品名"
+                            value="{{ old('name') }}" name="name">
 
-                    <input type="text" id="defaultSaveFormProductName" class="form-control" placeholder="製品名"
-                        value="{{ old('name') }}" name="name">
+                        <small id="defaultRegisterFormProductHelpBlock"
+                            class="form-text text-muted mb-4">製品名は英数字記号(-_)にしてください</small>
+                    </div>
 
-                    <small id="defaultRegisterFormProductHelpBlock"
-                        class="form-text text-muted mb-4">製品名は英数字記号(-_)にしてください</small>
+                    <div class="form-group row">
+                        <input type="text" id="defaultSaveFormVendorURL" class="form-control" placeholder="ベンダURL"
+                            value="{{ old('vendor_url') }}" name="vendor_url">
+                    </div>
 
-                    <input type="text" id="defaultSaveFormVendorURL" class="form-control" placeholder="ベンダURL"
-                        value="{{ old('vendor_url') }}" name="vendor_url">
-
-                    <select class="browser-default custom-select" id="select" name="part" required>
-                        <option value="" disabled selected>Choose your option</option>
-                        <option value="Hardware">Hardware</option>
-                        <option value="Operating System">Operating System</option>
-                        <option value="Application">Application</option>
-                    </select>
-
+                    <div class="form-group row">
+                        <select class="browser-default custom-select" id="select" name="part" required>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="Hardware">Hardware</option>
+                            <option value="Operating System">Operating System</option>
+                            <option value="Application">Application</option>
+                        </select>
+                    </div>
 
                     <button class="btn btn-info btn-block" type="submit">Save</button>
                 </form>
