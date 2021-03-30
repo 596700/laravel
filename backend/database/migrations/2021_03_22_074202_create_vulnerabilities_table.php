@@ -24,6 +24,7 @@ class CreateVulnerabilitiesTable extends Migration
             $table->set('user_interaction', ['None', 'Required']);
             $table->set('scope', ['Unchanged', 'Changed']);
             $table->set('confidentiality_impact', ['None', 'Low', 'High']);
+            $table->set('integrity_impact', ['None', 'Low', 'High']);
             $table->set('availability_impact', ['None', 'Low', 'High']);
             $table->float('base_score', 3, 1);
             $table->string('cwe', 100);
