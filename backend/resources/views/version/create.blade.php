@@ -16,13 +16,13 @@
 
                     <p class="h4 mb-4 text-center">バージョン登録</p>
 
+                    <div class="form-group row">
+                        <input type="text" id="defaultSaveFormVersionName" class="form-control" placeholder="バージョン名"
+                            value="{{ old('version') }}" name="version">
 
-                    <input type="text" id="defaultSaveFormVersionName" class="form-control" placeholder="バージョン名"
-                        value="{{ old('version') }}" name="version">
-
-                    <small id="defaultRegisterFormVersionHelpBlock"
-                        class="form-text text-muted mb-4">バージョン名は英数字記号(.)にしてください</small>
-
+                        <small id="defaultRegisterFormVersionHelpBlock"
+                            class="form-text text-muted mb-4">バージョン名は英数字記号(.)にしてください</small>
+                    </div>
                     <button class="btn btn-info btn-block" type="submit">Save</button>
                 </form>
             </div>
