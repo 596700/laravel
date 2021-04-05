@@ -53,7 +53,7 @@ class VersionPolicy
      */
     public function update(User $user, Version $version)
     {
-        return $user->id === $version->user_id;
+        return $user->role === 'admin' or $user->id === $version->user_id;
     }
 
     /**
@@ -65,7 +65,7 @@ class VersionPolicy
      */
     public function delete(User $user, Version $version)
     {
-        return $user->id === $version->user_id;
+        return $user->role === 'admin' or $user->id === $version->user_id;
     }
 
     /**

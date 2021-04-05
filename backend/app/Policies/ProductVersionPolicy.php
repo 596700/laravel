@@ -53,7 +53,7 @@ class ProductVersionPolicy
      */
     public function update(User $user, ProductVersion $productVersion)
     {
-        return $user->id === $productVersion->user_id;
+        return $user->role === 'admin' or $user->id === $productVersion->user_id;
     }
 
     /**
@@ -65,7 +65,7 @@ class ProductVersionPolicy
      */
     public function delete(User $user, ProductVersion $productVersion)
     {
-        return $user->id === $productVersion->user_id;
+        return $user->role === 'admin' or $user->id === $productVersion->user_id;
     }
 
     /**
