@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->string('vendor_url');
-            $table->set('part', ['Hardware', 'Operating System', 'Application']);
+            $table->enum('part', ['Hardware', 'Operating System', 'Application']);
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->timestamps();
