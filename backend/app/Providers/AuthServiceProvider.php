@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\Comment;
 use App\Models\Product;
 use App\Models\ProductVersion;
 use App\Models\Version;
 use App\Models\Vulnerability;
+use App\Policies\CommentPolicy;
 use App\Policies\ProductPolicy;
 use App\Policies\ProductVersionPolicy;
 use App\Policies\VersionPolicy;
@@ -25,6 +27,7 @@ class AuthServiceProvider extends ServiceProvider
         Version::class => VersionPolicy::class,
         ProductVersion::class => ProductVersionPolicy::class,
         Vulnerability::class => VulnerabilityPolicy::class,
+        Comment::class => CommentPolicy::class,
     ];
 
     /**
