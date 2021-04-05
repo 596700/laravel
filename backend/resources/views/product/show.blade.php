@@ -33,7 +33,7 @@
                         <td>{{ $product->created_at }}</td>
                         <td>{{ $product->updated_at }}</td>
                         <td>{{ $product->user->name }}</td>
-                        @if ($product->user == Auth::user())
+                        @if (Auth::user()->role==='admin' || $product->user == Auth::user())
                             <td><a href="{{ route('product.edit', ['product' => $product->id]) }}"><button><i
                                             class="fas fa-edit"></i></button></a></td>
                             <td>

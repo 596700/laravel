@@ -16,7 +16,7 @@
                         <th scope="col">作成日時</th>
                         <th scope="col">更新日時</th>
                         <th scope="col">作成者</th>
-                        @if ($version->user == Auth::user())
+                        @if (Auth::user()->role==='admin' || $version->user == Auth::user())
                             <th scope="col">編集</th>
                             <th scope="col">削除</th>
                         @endif
