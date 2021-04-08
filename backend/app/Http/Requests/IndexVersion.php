@@ -24,7 +24,7 @@ class IndexVersion extends FormRequest
     public function rules()
     {
         return [
-            'keyword' => ['regex:/^[a-zA-Z0-9\-.]+$/', 'max:50'],
+            'keyword' => ['regex:/^[a-zA-Z0-9\-.]+$/u', 'max:50'],
         ];
     }
 }

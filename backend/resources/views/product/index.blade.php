@@ -9,11 +9,18 @@
     <div class="container">
         @include('layouts.error_card_list')
 
-        <form class="form-inline d-flex float-right md-form form-sm mt-0" action="{{ route('product.index') }}">
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search"
-                name="keyword" value="{{ empty(old()) ? $keyword : old('keyword') }}">
-        </form>
+        <div class="d-flex justify-content-end">
+            <form class="form-inline d-flex float-right md-form form-sm mt-0" action="{{ route('product.index') }}">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search"
+                    name="keyword" value="{{ empty(old()) ? $keyword : old('keyword') }}">
+            </form>
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <a href="{{ route('product.create') }}"><button type="button"
+                    class="btn btn-outline-primary btn-sm">製品登録</button></a>
+        </div>
 
         @if ($products->count())
             <div class="table-responsive text-nowrap">
@@ -33,7 +40,8 @@
                                 <td title="製品詳細"><a href="{{ route('product.show', ['product' => $product->id]) }}">
                                         {{ $product->name }}</a>
                                 </td>
-                                <td title="URLへジャンプ"><a href="{{ $product->vendor_url }}">{{ $product->vendor_url }}</a></td>
+                                <td title="URLへジャンプ"><a href="{{ $product->vendor_url }}">{{ $product->vendor_url }}</a>
+                                </td>
                                 <td>{{ $product->part }}</td>
                             </tr>
                         @endforeach

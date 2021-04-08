@@ -15,16 +15,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
+// User
+// Route::namespace('User')->prefix('user')->name('user.')->group(function () {
+//     // ログイン認証関連
+//     Auth::routes([
+//         'register' => true,
+//         'reset' => true,
+//         'verify' => true,
+//     ]);
+
+//     // ログイン認証後
+//     Route::middleware('auth:user')->group(function () {
+
+//         // トップページ
+//         Route::resource('/', 'HomeController', ['only' => 'index']);
+//     });
 // });
 
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
-// User
-Route::namespace('User')->prefix('user')->name('user.')->group(function () {
+Route::namespace('User')->name('user.')->group(function () {
     // ログイン認証関連
     Auth::routes([
         'register' => true,
@@ -36,30 +44,25 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     Route::middleware('auth:user')->group(function () {
 
         // トップページ
-        Route::resource('home', 'HomeController', ['only' => 'index']);
+        Route::resource('/', 'HomeController', ['only' => 'index']);
     });
 });
 
+// ログイン認証後
+Route::middleware('auth:user')->group(function () {
+
+    // トップページ
+    Route::resource('/', 'HomeController', ['only' => 'index']);
+});
+
+// Route::get('/', function() {
+//     return view('home');
+//   });
+
+Route::get('/', 'HomeController@index')->name('home');
 Route::resource('product', 'ProductController');
 Route::resource('version', 'VersionController');
 Route::resource('product_version', 'ProductVersionController');
 Route::resource('vulnerability', 'VulnerabilityController');
-Route::resource('comment', 'CommentController');
-
-
-// Administrator
-// Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
-//     // ログイン認証関連
-//     Auth::routes([
-//         'register' => true,
-//         'reset' => false,
-//         'verify' => false,
-//     ]);
-
-//     // ログイン認証後
-//     Route::middleware('auth:admin')->group(function () {
-
-//         // トップページ
-//         Route::resource('home', 'HomeController', ['only' => 'index']);
-//     });
-// });
+Route::resource('comment', 'CommentController', ['only' => ['store', 'show', 'destroy']]);
+Route::resource('user', 'UserController', ['only' => ['show', 'edit', 'update', 'destroy']]);

@@ -30,7 +30,8 @@ class ProductVersion extends Model
 
     public function vulnerability(): BelongsToMany
     {
-        return $this->BelongsToMany('App\Models\Vulnerability', 'product_version_vulnerabilities');
+        // , 'product_version_vulnerabilities'
+        return $this->BelongsToMany('App\Models\Vulnerability');
     }
 
 }

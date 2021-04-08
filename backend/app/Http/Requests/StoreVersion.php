@@ -24,7 +24,7 @@ class StoreVersion extends FormRequest
     public function rules()
     {
         return [
-            'version' => ['required', 'regex:/^[a-zA-Z0-9\-.]+$/', 'unique:versions'],
+            'version' => ['required', 'regex:/^[a-zA-Z0-9\-.]+$/u', 'unique:versions'],
         ];
     }
 }

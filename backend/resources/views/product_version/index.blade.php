@@ -9,11 +9,19 @@
     <div class="container">
         @include('layouts.error_card_list')
 
-        <form class="form-inline d-flex float-right md-form form-sm mt-0" action="{{ route('product_version.index') }}">
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search"
-                name="keyword" value="{{ empty(old()) ? $keyword : old('keyword') }}">
-        </form>
+        <div class="d-flex justify-content-end">
+            <form class="form-inline d-flex float-right md-form form-sm mt-0"
+                action="{{ route('product_version.index') }}">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search"
+                    name="keyword" value="{{ empty(old()) ? $keyword : old('keyword') }}">
+            </form>
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <a href="{{ route('product_version.create') }}"><button type="button"
+                    class="btn btn-outline-primary btn-sm">製品/バージョン登録</button></a>
+        </div>
 
         @if ($product_versions->count())
             <div class="table-responsive text-nowrap">
@@ -28,7 +36,8 @@
                         @foreach ($product_versions as $product_version)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
-                                <td title="製品/バージョン詳細"><a href="{{ route('product_version.show', ['product_version' => $product_version->id]) }}">
+                                <td title="製品/バージョン詳細"><a
+                                        href="{{ route('product_version.show', ['product_version' => $product_version->id]) }}">
                                         {{ $product_version->product->name }}/{{ $product_version->version->version }}</a>
                                 </td>
                             </tr>

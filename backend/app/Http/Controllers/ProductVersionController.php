@@ -82,7 +82,11 @@ class ProductVersionController extends Controller
      */
     public function show(ProductVersion $productVersion)
     {
-        return view('product_version/show', ['product_version' => $productVersion]);
+        $vulnerabilities = $productVersion->vulnerability;
+
+        // dd($vulnerabilities);
+
+        return view('product_version/show', ['product_version' => $productVersion, 'vulnerabilities' => $vulnerabilities]);
     }
 
     /**

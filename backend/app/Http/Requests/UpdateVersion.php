@@ -24,7 +24,7 @@ class UpdateVersion extends FormRequest
     public function rules()
     {
         return [
-            'version' => ['required', 'regex:/^[a-zA-Z0-9\-.]+$/'],
+            'version' => ['required', 'regex:/^[a-zA-Z0-9\-.]+$/u'],
         ];
     }
 }

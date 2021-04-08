@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class IndexProductVersion extends FormRequest
+class UpdateUser extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class IndexProductVersion extends FormRequest
     public function rules()
     {
         return [
-            'keyword' => ['regex:/^[a-zA-Z0-9\-.]+$/u', 'max:100'],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
         ];
     }
 }

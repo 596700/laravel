@@ -5,11 +5,13 @@ namespace App\Providers;
 use App\Models\Comment;
 use App\Models\Product;
 use App\Models\ProductVersion;
+use App\Models\User;
 use App\Models\Version;
 use App\Models\Vulnerability;
 use App\Policies\CommentPolicy;
 use App\Policies\ProductPolicy;
 use App\Policies\ProductVersionPolicy;
+use App\Policies\UserPolicy;
 use App\Policies\VersionPolicy;
 use App\Policies\VulnerabilityPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -28,6 +30,7 @@ class AuthServiceProvider extends ServiceProvider
         ProductVersion::class => ProductVersionPolicy::class,
         Vulnerability::class => VulnerabilityPolicy::class,
         Comment::class => CommentPolicy::class,
+        User::class => UserPolicy::class,
     ];
 
     /**
