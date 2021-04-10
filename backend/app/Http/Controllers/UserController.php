@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateUser;
+use App\Models\ProductVersion;
 use App\Models\User;
 use Illuminate\Http\Request;
 

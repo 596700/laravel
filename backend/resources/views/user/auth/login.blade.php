@@ -22,34 +22,20 @@
                         <div>
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember" name="remember">
-                                <label class="custom-control-label" for="remember">Remember me</label>
+                                <label class="custom-control-label" for="defaultLoginFormRemember">パスワードを記憶させる</label>
                             </div>
                         </div>
                         <div>
-                            <a href="{{ route('user.password.request') }}">Forgot password?</a>
+                            <a href="{{ route('user.password.request') }}">パスワードを忘れた方はこちら</a>
                         </div>
                     </div>
 
                     <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
 
                     <div class="text-center">
-                        <p>Not a member?
-                            <a href="{{ route('user.register') }}">Register</a>
+                        <p>
+                            <a href="{{ route('user.register') }}">会員登録</a>
                         </p>
-
-                        <p>or sign in with:</p>
-                        <a type="button" class="light-blue-text mx-2">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a type="button" class="light-blue-text mx-2">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a type="button" class="light-blue-text mx-2">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a type="button" class="light-blue-text mx-2">
-                            <i class="fab fa-github"></i>
-                        </a>
                     </div>
                 </form>
             </div>

@@ -13,7 +13,7 @@
                 <form class="border border-light p-5" method="POST" action="{{ route('user.register') }}">
                     @csrf
 
-                    <p class="h4 mb-4 text-center">ユーザー登録</p>
+                    <p class="h4 mb-4 text-center">会員登録</p>
 
                     <div class="form-group row">
                         <input class="form-control" id="defaultRegisterFormUserName" type="text" placeholder="ユーザー名"
@@ -41,6 +41,7 @@
 
 
                     <button class="btn btn-info my-4 btn-block" type="submit">登録</button>
+                    <small class="form-text text-muted mb-4">登録完了後メールアドレス宛にメールが送信されます</small>
 
                 </form>
             </div>

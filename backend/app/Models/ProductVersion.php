@@ -34,4 +34,9 @@ class ProductVersion extends Model
         return $this->BelongsToMany('App\Models\Vulnerability');
     }
 
+    public function watcher(): BelongsToMany
+    {
+        return $this->BelongsToMany('App\Models\User');
+    }
+
 }

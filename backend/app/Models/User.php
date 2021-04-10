@@ -56,14 +56,19 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany('App\Models\Version');
     }
 
+    // public function watch_list(): BelongsToMany
+    // {
+    //     return $this->belongsToMany('App\Models\ProductVersion', 'product_version_user', 'user_id', 'product_version_id');
+    // }
+
+    // public function product_version(): HasMany
+    // {
+    //     return $this->hasMany('App\Models\ProductVersion');
+    // }
+
     public function watch_list(): BelongsToMany
     {
-        return $this->belongsToMany('App\Models\ProductVersion', 'product_version_user', 'user_id', 'product_version_id');
-    }
-
-    public function product_version(): HasMany
-    {
-        return $this->hasMany('App\Models\ProductVersion');
+        return $this->belongsToMany('App\Models\ProductVersion');
     }
 
     public function vulnerabilities(): HasMany

@@ -66,3 +66,4 @@ Route::resource('product_version', 'ProductVersionController');
 Route::resource('vulnerability', 'VulnerabilityController');
 Route::resource('comment', 'CommentController', ['only' => ['store', 'show', 'destroy']]);
 Route::resource('user', 'UserController', ['only' => ['show', 'edit', 'update', 'destroy']]);
+Route::resource('watch_list', 'WatchListController', ['only' => ['create', 'store', 'index', 'destroy']]);

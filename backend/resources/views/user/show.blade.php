@@ -6,7 +6,7 @@
 
     @include('layouts.nav')
     <div class="container">
-
+        @include('layouts.error_card_list')
         <div class="table-responsive text-nowrap">
             <table class="table table-hover">
                 <thead>
@@ -23,7 +23,7 @@
                     <tr>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        @if (Auth::user()->role==='admin' || $user == Auth::user())
+                        @if (Auth::user()->role === 'admin' || $user == Auth::user())
                             <td><a href="{{ route('user.edit', ['user' => $user->id]) }}"><button><i
                                             class="fas fa-edit"></i></button></a></td>
                             <td>
@@ -65,5 +65,7 @@
                 </tbody>
             </table>
         </div>
+
+
     </div>
 @endsection
