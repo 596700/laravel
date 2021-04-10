@@ -21,7 +21,7 @@
                             value="{{ old('version') }}" name="version">
 
                         <small id="defaultRegisterFormVersionHelpBlock"
-                            class="form-text text-muted mb-4">バージョン名は英数字記号(.)にしてください</small>
+                            class="form-text text-muted mb-4">バージョン名は英数字記号(-.)にしてください</small>
                     </div>
                     <button class="btn btn-info btn-block" type="submit">Save</button>
                 </form>
