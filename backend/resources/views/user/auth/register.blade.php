@@ -34,7 +34,9 @@
                         <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="パスワード(確認)"
                             aria-describedby="defaultRegisterFormPasswordHelpBlock" name="password_confirmation">
                         <small id="defaultRegisterFormPasswordHelpBlock"
-                            class="form-text text-muted mb-4">パスワードは8文字以上の英数字記号にしてください</small>
+                            class="form-text text-muted mb-4">パスワードは8文字以上の英数字記号にしてください<br />
+                            ポートフォリオサイトでセキュリティが保証できないため、登録のメールアドレスとは異なるパスワードをおすすめします
+                        </small>
                     </div>
 
 
