@@ -15,29 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// User
-// Route::namespace('User')->prefix('user')->name('user.')->group(function () {
-//     // ログイン認証関連
-//     Auth::routes([
-//         'register' => true,
-//         'reset' => true,
-//         'verify' => true,
-//     ]);
-
-//     // ログイン認証後
-//     Route::middleware('auth:user')->group(function () {
-
-//         // トップページ
-//         Route::resource('/', 'HomeController', ['only' => 'index']);
-//     });
-// });
-
 Route::namespace('User')->name('user.')->group(function () {
     // ログイン認証関連
     Auth::routes([
         'register' => true,
         'reset' => true,
         'verify' => true,
+        // パスワードリセット機能を使ってもらう
+        'confirm' => false,
     ]);
 
     // ログイン認証後

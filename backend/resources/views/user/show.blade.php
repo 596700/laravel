@@ -7,6 +7,12 @@
     @include('layouts.nav')
     <div class="container">
         @include('layouts.error_card_list')
+        <div class="d-flex justify-content-end">
+            <a href="{{ route('user.password.request') }}"><button type="button"
+                    class="btn btn-outline-primary btn-sm">パスワードリセット</button></a>
+            <a href="{{ route('user.verification.notice') }}"><button type="button"
+                    class="btn btn-outline-primary btn-sm">メールアクティベーション</button></a>
+        </div>
         <div class="table-responsive text-nowrap">
             <table class="table table-hover">
                 <thead>
