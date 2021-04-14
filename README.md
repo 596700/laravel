@@ -7,4 +7,4 @@ nginx 1.18<br />
 docker-compose version 1.29.0<br />
 Docker version 19.03.13-ce<br />
 
-![image](https://user-images.githubusercontent.com/70248415/114789383-03ead200-9dbe-11eb-96f9-13c46a9bef8c.png)
+![image](https://user-images.githubusercontent.com/70248415/114794161-d48c9300-9dc6-11eb-8f10-38902c222562.png)
