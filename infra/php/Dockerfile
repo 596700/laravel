@@ -9,7 +9,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1 \
 # Laravelのプロジェクト作成前にchown -R <username> /composer/cache/
 # 設定したユーザーでcomposer create-projectする
 # /work/storage配下のすべてををchmod www-data:www-dataにする
-ARG USERNAME=k
+ARG USERNAME=ec2-user
 ARG uid=1000
 ARG gid=1000
 

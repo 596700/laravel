@@ -35,7 +35,8 @@
                             aria-describedby="defaultRegisterFormPasswordHelpBlock" name="password_confirmation">
                         <small id="defaultRegisterFormPasswordHelpBlock"
                             class="form-text text-muted mb-4">パスワードは8文字以上の英数字記号にしてください<br />
-                            ポートフォリオサイトでセキュリティが保証できないため、登録のメールアドレスとは異なるパスワードをおすすめします
+                            本サイトはポートフォリオ作品のためセキュリティの保証ができません<br />
+                            実際にご利用のメールアドレスと異なるパスワードでの登録をおすすめします
                         </small>
                     </div>
 

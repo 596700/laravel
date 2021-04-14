@@ -26,10 +26,11 @@ class VersionController extends Controller
     {
         $keyword = $request->input('keyword', '');
 
-        $query = Version::simplePaginate(20);
+        $query = Version::orderBy('version', 'asc')->simplePaginate(20);
 
         if ($keyword) {
             $query = Version::where('version', 'LIKE', "%{$keyword}%")
+                            ->orderBy('version', 'asc')
                             ->simplePaginate(20);
         }
 

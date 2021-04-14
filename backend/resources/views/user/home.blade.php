@@ -110,7 +110,7 @@
                                                 {{ $vulnerability->cve_id }}</a>
                                         </td>
                                         <td>
-                                            <span id="base_score">{{ $vulnerability->base_score }}</span>
+                                            <span class="base_score">{{ $vulnerability->base_score }}</span>
                                         </td>
                                         <td>
                                             {{ $vulnerability->cwe }}
@@ -126,7 +126,7 @@
                 @endif
 
                 @if (isset($vulnerability))
-                    @include('javascript.base_score')
+                    @include('javascript.index_base_score')
                 @endif
 
 
