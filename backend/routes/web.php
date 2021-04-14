@@ -40,9 +40,9 @@ Route::middleware('auth:user')->group(function () {
     Route::resource('/', 'HomeController', ['only' => 'index']);
 });
 
-// Route::get('/', function() {
-//     return view('home');
-//   });
+Route::get('about', function() {
+    return view('user.about');
+})->name('about');
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('product', 'ProductController');
