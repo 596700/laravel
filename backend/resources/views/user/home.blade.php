@@ -66,7 +66,7 @@
                 @endif
 
                 @if ($product_versions->count())
-                    <p class="text-left">最近登録されたバージョン(最大10件)</p>
+                    <p class="text-left">最近登録された製品/バージョン(最大10件)</p>
                     <div class="table-responsive-sm text-nowrap">
                         <table class="table table-hover">
                             <thead>
@@ -91,7 +91,7 @@
                 @endif
 
                 @if ($vulnerabilities->count())
-                    <p class="text-left">最近登録されたバージョン(最大20件)</p>
+                    <p class="text-left">最近登録されたCVE(最大20件)</p>
                     <div class="table-responsive-sm text-nowrap">
                         <table class="table table-hover">
                             <thead>

@@ -8,9 +8,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class ProductVersion extends Model
 {
-    //
-    // protected $table = 'product_versions';
-
     protected $fillable = ['product_id', 'version_id'];
 
     public function product(): BelongsTo
@@ -30,7 +27,6 @@ class ProductVersion extends Model
 
     public function vulnerability(): BelongsToMany
     {
-        // , 'product_version_vulnerabilities'
         return $this->BelongsToMany('App\Models\Vulnerability');
     }
 
