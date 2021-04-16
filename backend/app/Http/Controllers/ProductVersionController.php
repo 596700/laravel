@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateProductVersion;
 use App\Models\Product;
 use App\Models\ProductVersion;
 use App\Models\Version;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 
 class ProductVersionController extends Controller
@@ -27,17 +28,28 @@ class ProductVersionController extends Controller
     {
         $keyword = $request->input('keyword', '');
 
-        $products = ProductVersion::simplePaginate(20);
+        $products = ProductVersion::with(['product', 'version'])->get();
+        $products = $products->sortBy('version.version')->sortBy('product.name')->values();
+        
+        $product_version = new LengthAwarePaginator(
+            $products->forPage($request->page, 5),
+            count($products),
+            5,
+            $request->page,
+            array('path' => $request->url())
+        );
 
         $product_versions = [];
 
         if ($keyword) {
             $products = ProductVersion::whereHas('product', function ($query) use ($keyword) {
                 $query->where('name', 'LIKE', "%{$keyword}%");
+            })->orWhereHas('version', function ($query) use ($keyword) {
+                $query->where('version', 'LIKE', "%{$keyword}%");
             });
-            $product_versions = $products->simplePaginate(20);
+            $product_versions = $products->paginate(5);
         } else {
-            $product_versions = $products;
+            $product_versions = $product_version;
         }
 
         return view('product_version/index', compact('product_versions', 'keyword'));

@@ -27,12 +27,12 @@ class ProductController extends Controller
     {
         $keyword = $request->input('keyword', '');
 
-        $query = Product::orderBy('name', 'asc')->simplePaginate(20);
+        $query = Product::orderBy('name', 'asc')->paginate(5);
 
         if ($keyword) {
             $query = Product::where('name', 'LIKE', "%{$keyword}%")
                             ->orderBy('name', 'asc')
-                            ->simplePaginate(20);
+                            ->paginate(5);
         }
 
         $products = $query;
