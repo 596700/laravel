@@ -92,7 +92,7 @@
 
                 @if ($vulnerabilities->count())
                     <p class="text-left">最近登録されたCVE(最大20件)</p>
-                    <div class="table-responsive-sm text-nowrap">
+                    <div class="table-responsive-xl text-nowrap">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
