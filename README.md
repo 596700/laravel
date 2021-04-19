@@ -10,7 +10,8 @@ Docker version 19.03.13-ce<br />
 
 <h1>ER図</h1>
 
-![114794161-d48c9300-9dc6-11eb-8f10-38902c222562](https://user-images.githubusercontent.com/70248415/115111120-ad49e780-9fb9-11eb-8a1c-33818ab463af.png)
+![aa](https://user-images.githubusercontent.com/70248415/115225052-9c7bac00-a148-11eb-8453-58dc76f97757.jpg)
+
 
 <h1>機能</h1>
 下記の機能に関する共通事項としては、登録はアカウントアクティベーション後可能<br />
