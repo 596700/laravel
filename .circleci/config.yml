@@ -58,7 +58,7 @@ commands:
       - run:
           name: Unittest
           working_directory: backend
-          command: ./vendor/bin/phpunit
+          command: ./vendor/bin/phpunit --migrate-configuration
   test-e2etest:
     steps:
       - run:
