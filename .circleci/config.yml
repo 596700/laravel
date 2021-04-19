@@ -62,9 +62,9 @@ commands:
   test-e2etest:
     steps:
       - run:
-        name: Install dusk
-        working_directory: backend
-        command: php artisan dusk:install
+          name: Install dusk
+          working_directory: backend
+          command: php artisan dusk:install
       - run:
           name: Install Chrome Driver
           working_directory: backend
