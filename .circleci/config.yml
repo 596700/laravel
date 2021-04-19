@@ -29,7 +29,6 @@ commands:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "backend/composer.json" }}
-            - v1-dependencies-
   composer-install:
     steps:
       - run:
