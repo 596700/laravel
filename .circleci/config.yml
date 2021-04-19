@@ -29,6 +29,7 @@ commands:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "backend/composer.json" }}
+            - v1-dependencies-
   composer-install:
     steps:
       - run:
@@ -52,17 +53,6 @@ commands:
           name: Migration & Seeding
           working_directory: backend
           command: php artisan migrate --seed
-  test-static-code-analysis:
-    steps:
-      - run:
-          name: Coding rules check
-          working_directory: backend
-          command: ./vendor/bin/phpcs --standard=phpcs.xml ./
-
-      - run:
-          name: Static code analysis
-          working_directory: backend
-          command: php artisan code:analyse --paths='app,tests' --level=max
   test-unittest:
     steps:
       - run:
@@ -104,6 +94,5 @@ jobs:
       - save-cache-composer
       - wait-for-mysql
       - migration-seeding
-      - test-static-code-analysis
       - test-unittest
       - test-e2etest
