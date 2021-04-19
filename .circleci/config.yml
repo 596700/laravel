@@ -59,32 +59,6 @@ commands:
           name: Unittest
           working_directory: backend
           command: ./vendor/bin/phpunit --migrate-configuration
-  test-e2etest:
-    steps:
-      - run:
-          name: Install dusk
-          working_directory: backend
-          command: php artisan dusk:install
-      - run:
-          name: Install Chrome Driver
-          working_directory: backend
-          command: php artisan dusk:chrome-driver 76
-      - run:
-          name: Start Chrome Driver
-          working_directory: backend
-          command: ./vendor/laravel/dusk/bin/chromedriver-linux
-          background: true
-      - run:
-          name: Start Laravel Server
-          working_directory: backend
-          command: php artisan serve
-          background: true
-      - run:
-          name: Run Dusk
-          working_directory: laravel
-          command: php artisan dusk
-          environment:
-            APP_URL: http://localhost:8000
 jobs:
   build:
     executor:
@@ -99,4 +73,3 @@ jobs:
       - wait-for-mysql
       - migration-seeding
       - test-unittest
-      - test-e2etest
