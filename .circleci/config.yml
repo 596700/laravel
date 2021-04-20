@@ -81,4 +81,6 @@ jobs:
       - wait-for-mysql
       - migration-seeding
       - test-unittest
-      - deploy
+  deploy:
+    requires:
+      - build
