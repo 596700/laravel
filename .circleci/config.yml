@@ -59,6 +59,14 @@ commands:
           name: Unittest
           working_directory: backend
           command: ./vendor/bin/phpunit --migrate-configuration
+  deploy:
+    machine:
+      image: circleci/classic:edge
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - ${KEY_FINGERPRINT}
+      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /home/ec2-user/laravel/ && git pull origin master'
 jobs:
   build:
     executor:
@@ -73,3 +81,4 @@ jobs:
       - wait-for-mysql
       - migration-seeding
       - test-unittest
+      - deploy
