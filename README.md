@@ -10,12 +10,11 @@ Docker version 19.03.13-ce<br />
 
 <h1>ER図</h1>
 
-![aa](https://user-images.githubusercontent.com/70248415/115225052-9c7bac00-a148-11eb-8453-58dc76f97757.jpg)
+![image](https://user-images.githubusercontent.com/70248415/115553115-0088a680-a2e8-11eb-9429-fa474468be58.png)
 
 <h1>構成図</h1>
 
-![image](https://user-images.githubusercontent.com/70248415/115530332-a3342b80-a2ce-11eb-8258-a827233dc95c.png)
-
+![image](https://user-images.githubusercontent.com/70248415/115552841-b3a4d000-a2e7-11eb-8c10-83b8d80b098f.png)
 
 
 <h1>機能</h1>
