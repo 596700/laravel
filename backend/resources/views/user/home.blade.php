@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'トップページ')
+@section('title', 'CVE Database')
 
 @section('content')
 
