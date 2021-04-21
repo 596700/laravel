@@ -10,7 +10,7 @@ Docker version 19.03.13-ce<br />
 
 <h1>ER図</h1>
 
-![image](https://user-images.githubusercontent.com/70248415/115553115-0088a680-a2e8-11eb-9429-fa474468be58.png)
+![image](https://user-images.githubusercontent.com/70248415/115553334-4180bb00-a2e8-11eb-8155-8524c8d61bf2.png)
 
 <h1>構成図</h1>
 
