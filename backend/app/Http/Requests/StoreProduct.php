@@ -25,7 +25,7 @@ class StoreProduct extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'alpha_dash', 'unique:products'],
+            'name' => ['required', 'regex:/^[a-zA-Z0-9_- ]+$/u', 'unique:products'],
             'vendor_url' => ['required', 'active_url'],
             'part' => [
                 'required',
