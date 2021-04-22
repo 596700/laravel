@@ -20,7 +20,7 @@ class StoreProductTest extends TestCase
     public function testStoreProduct(array $keys, array $values, bool $expect)
     {   
         //入力項目の配列（$keys）と値の配列($values)から、連想配列を生成する
-        $dataList = [$keys => $values];
+        $dataList = array_combine($keys, $values);
         // フォームリクエストのインスタンスをつくる
         $request = new StoreProduct();
         // インスタンスのルールを取得
@@ -38,12 +38,22 @@ class StoreProductTest extends TestCase
         return [
             'OK' => [
                 ['name', 'vendor_url', 'part'],
-                ['Windows Server 2019', 'https://www.microsoft.com/ja-jp/windows-server', 'Operating System'],
+                ['Windows-Server-2019', 'https://www.microsoft.com/ja-jp/windows-server', 'Operating System'],
+                true
+            ],
+            'OK' => [
+                ['name', 'vendor_url', 'part'],
+                ['Windows Server 2016', 'https://www.microsoft.com/ja-jp/windows-server', 'Operating System'],
                 true
             ],
             'NG' => [
                 ['name', 'vendor_url', 'part'],
-                ['Windows Server 2019!', 'https://www.microsoft.com/ja-jp/windows-server', 'Operating System'],
+                ['Windows-Server-2019!', 'https://www.microsoft.com/ja-jp/windows-server', 'Operating System'],
+                false
+            ],
+            'NG' => [
+                ['name', 'vendor_url', 'part'],
+                ['Windows　Server　2019!', 'https://www.microsoft.com/ja-jp/windows-server', 'Operating System'],
                 false
             ],
         ];
