@@ -16,6 +16,7 @@ class ProductVersionController extends Controller
     public function __construct()
     {
         $this->authorizeResource(ProductVersion::class, 'product_version');
+        $this->middleware('auth')->only('create');
         $this->middleware('verified')->only('create');
     }
 
