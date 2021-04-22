@@ -14,6 +14,7 @@ class VersionController extends Controller
     public function __construct()
     {
         $this->authorizeResource(Version::class, 'version');
+        $this->middleware('auth')->only('create');
         $this->middleware('verified')->only('create');
     }
 

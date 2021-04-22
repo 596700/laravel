@@ -15,6 +15,7 @@ class ProductController extends Controller
     public function __construct()
     {
         $this->authorizeResource(Product::class, 'product');
+        $this->middleware('auth')->only('create');
         $this->middleware('verified')->only('create');
     }
 
