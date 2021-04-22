@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'メールアクティベーション')
+@section('title', 'アクティベーション')
 
 @section('content')
 
