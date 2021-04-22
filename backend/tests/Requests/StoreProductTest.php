@@ -14,9 +14,10 @@ class StoreProductTest extends TestCase
      * A basic feature test example.
      *
      * @return void
-     * フォームリクエストのバリデーションテスト
+     * @dataProvider dataProductStore
+     * 
      */
-    public function testExample(array $keys, array $values, bool $expect)
+    public function testStoreProduct(array $keys, array $values, bool $expect)
     {   
         //入力項目の配列（$keys）と値の配列($values)から、連想配列を生成する
         $dataList = [$keys => $values];
@@ -47,5 +48,4 @@ class StoreProductTest extends TestCase
             ],
         ];
     }
-
 }
