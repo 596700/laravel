@@ -58,7 +58,7 @@ commands:
       - run:
           name: Unittest
           working_directory: backend
-          command: ./vendor/bin/phpunit --migrate-configuration
+          command: ./vendor/bin/phpunit --migrate-configuration && ./vendor/bin/phpunit
 jobs:
   build:
     executor:
