@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Requests;
 
 use App\Http\Requests\StoreProduct;
 use Illuminate\Foundation\Testing\RefreshDatabase;
