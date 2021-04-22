@@ -11,7 +11,7 @@
             <a href="{{ route('user.password.request') }}"><button type="button"
                     class="btn btn-outline-primary btn-sm">パスワードリセット</button></a>
             <a href="{{ route('user.verification.notice') }}"><button type="button"
-                    class="btn btn-outline-primary btn-sm">メールアクティベーション</button></a>
+                    class="btn btn-outline-primary btn-sm">アクティベーション</button></a>
         </div>
         <div class="table-responsive text-nowrap">
             <table class="table table-hover">
