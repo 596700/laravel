@@ -63,8 +63,8 @@ class ProductVersionController extends Controller
      */
     public function create()
     {
-        $products = Product::all();
-        $versions = Version::all();
+        $products = Product::orderBy('name', 'asc')->get();
+        $versions = Version::orderBy('version', 'asc')->get();
 
         return view('product_version/create', compact('products', 'versions'));
     }
