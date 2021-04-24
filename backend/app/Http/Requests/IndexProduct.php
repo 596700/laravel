@@ -24,7 +24,7 @@ class IndexProduct extends FormRequest
     public function rules()
     {
         return [
-            'keyword' => ['alpha_dash', 'max:50'],
+            'keyword' => ['regex:/^[a-zA-Z0-9\-_ ]+$/u', 'max:50'],
         ];
     }
 }
