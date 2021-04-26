@@ -8,8 +8,6 @@
 
     <div class="container">
         @include('layouts.error_card_list')
-        <div class="row justify-content-center">
-            <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
 
                 <div class="d-flex justify-content-end">
                     <form class="form-inline d-flex float-right md-form form-sm mt-0"
@@ -58,8 +56,6 @@
                             {{ $products->appends(request()->input())->links() }}
                         </div>
                     </div>
-            </div>
-        </div>
     </div>
 
 @else
