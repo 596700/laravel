@@ -37,6 +37,10 @@ class VersionController extends Controller
 
         $versions = $query;
 
+        if ($request->ajax()) {
+            return view('version/pagination_data', compact('versions', 'keyword'));
+        }
+
         return view('version/index', compact('versions', 'keyword'));
     }
 

@@ -38,6 +38,10 @@ class ProductController extends Controller
 
         $products = $query;
 
+        if ($request->ajax()) {
+            return view('product/pagination_data', compact('products', 'keyword'));
+        }
+
         return view('product/index', compact('products', 'keyword'));
     }
 

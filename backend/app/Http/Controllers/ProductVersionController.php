@@ -53,6 +53,10 @@ class ProductVersionController extends Controller
             $product_versions = $product_version;
         }
 
+        if ($request->ajax()) {
+            return view('product_version/pagination_data', compact('product_versions', 'keyword'));
+        }
+
         return view('product_version/index', compact('product_versions', 'keyword'));
     }
 
