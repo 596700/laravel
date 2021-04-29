@@ -9,53 +9,25 @@
     <div class="container">
         @include('layouts.error_card_list')
 
-                <div class="d-flex justify-content-end">
-                    <form class="form-inline d-flex float-right md-form form-sm mt-0"
-                        action="{{ route('product.index') }}">
-                        <i class="fas fa-search" aria-hidden="true"></i>
-                        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-                            aria-label="Search" name="keyword" value="{{ empty(old()) ? $keyword : old('keyword') }}">
-                    </form>
-                </div>
+        <div class="d-flex justify-content-end">
+            <form class="form-inline d-flex float-right md-form form-sm mt-0" action="{{ route('product.index') }}">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search"
+                    name="keyword" value="{{ empty(old()) ? $keyword : old('keyword') }}">
+            </form>
+        </div>
 
-                <div class="d-flex justify-content-end">
-                    <a href="{{ route('product.create') }}"><button type="button"
-                            class="btn btn-outline-primary btn-sm">製品登録</button></a>
-                </div>
+        <div class="d-flex justify-content-end">
+            <a href="{{ route('product.create') }}"><button type="button"
+                    class="btn btn-outline-primary btn-sm">製品登録</button></a>
+        </div>
 
-                @if ($products->count())
-                    <div class="table-responsive-sm text-nowrap">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">製品名</th>
-                                    <th scope="col">ベンダURL</th>
-                                    <th scope="col">種別</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($products as $product)
-                                    <tr>
-                                        <th scope="row">{{ $loop->iteration }}</th>
-                                        <td title="製品詳細"><a
-                                                href="{{ route('product.show', ['product' => $product->id]) }}">
-                                                {{ $product->name }}</a>
-                                        </td>
-                                        <td title="URLへジャンプ"><a
-                                                href="{{ $product->vendor_url }}">{{ $product->vendor_url }}</a>
-                                        </td>
-                                        <td>{{ $product->part }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            {{ $products->appends(request()->input())->links() }}
-                        </div>
-                    </div>
+        @if ($products->count())
+            <div class="items">
+                @include('product.pagination_data')
+            </div>
+
+
     </div>
 
 @else
@@ -67,6 +39,28 @@
     </div>
 
     @endif
+
+    <script type="text/javascript">
+        window.onload = function () {
+            $('body').on('click', '.pagination a', function (e) {
+                e.preventDefault();
+                $('#table').append('<img style="position: absolute; left: 0; top: 0; z-index: 10000;" src="https://i.imgur.com/v3KWF05.gif />');
+                var url = $(this).attr('href');
+                window.history.pushState("", "", url);
+                loadBooks(url);
+            });
+    
+            function loadBooks(url) {
+                $.ajax({
+                    url: url
+                }).done(function (data) {
+                    $('.items').html(data);
+                }).fail(function () {
+                    console.log("Failed to load data!");
+                });
+            }
+        };
+        </script>
 
 
 @endsection
