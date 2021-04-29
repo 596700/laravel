@@ -16,7 +16,7 @@ class ProductController extends Controller
     {
         $this->authorizeResource(Product::class, 'product');
         $this->middleware('auth')->only('create');
-        $this->middleware('verified')->only('create');
+        // $this->middleware('verified')->only('create');
     }
 
     /**
@@ -37,6 +37,10 @@ class ProductController extends Controller
         }
 
         $products = $query;
+
+        if ($request->ajax()) {
+            return view('product/pagination_data', compact('products', 'keyword'));
+        }
 
         return view('product/index', compact('products', 'keyword'));
     }
