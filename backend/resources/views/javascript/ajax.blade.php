@@ -7,10 +7,10 @@
                 );
             var url = $(this).attr('href');
             window.history.pushState("", "", url);
-            loadBooks(url);
+            loadItems(url);
         });
 
-        function loadBooks(url) {
+        function loadItems(url) {
             $.ajax({
                 url: url
             }).done(function(data) {
@@ -19,6 +19,9 @@
                 console.log("Failed to load data!");
             });
         }
-    };
 
+        window.onpopstate = function(e) {
+            loadItems(location.href);
+            }
+    };
 </script>
