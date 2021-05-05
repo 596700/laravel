@@ -8,6 +8,9 @@ use App\Models\ProductVersion;
 use App\Models\User;
 use App\Models\Version;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
 class WatchListController extends Controller
@@ -18,13 +21,24 @@ class WatchListController extends Controller
         $this->middleware('auth');
     }
 
+
+    // 他のコントローラーで使用しているページネーションが使い回せなかったため、ググって参考にしている
+    public function paginate($items, $perPage = 5, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+    }
+    
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
         $user = User::find(Auth::id());
         $watch_lists = $user->watch_list;
         $product_versions = [];
@@ -36,10 +50,15 @@ class WatchListController extends Controller
                 $product_versions[$watch_list->id] = $product.'/'.$version;
             }
             asort($product_versions);
+            $data = $this->paginate($product_versions, 5, null, array('path' => $request->url()));
+        }
+
+        if ($request->ajax()) {
+            return view('watch_list/pagination_data', ['product_versions' => $data]);
         }
 
 
-        return view('watch_list/index', ['product_versions' => $product_versions]);
+        return view('watch_list/index', ['product_versions' => $data]);
     }
 
     /**
