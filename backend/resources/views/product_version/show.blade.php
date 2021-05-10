@@ -82,10 +82,12 @@
                         <tr>
                             <td colspan="7">
                                 @if (!empty($vulnerabilities))
+                                <p class="text-wrap">
                                     @foreach ($vulnerabilities as $vulnerability)
                                         <a
                                             href="{{ route('vulnerability.show', ['vulnerability' => $vulnerability->id]) }}">{{ $vulnerability->cve_id }}</a>
                                     @endforeach
+                                </p>
                                 @endif
 
                             </td>
