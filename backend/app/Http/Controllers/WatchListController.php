@@ -82,7 +82,8 @@ class WatchListController extends Controller
     public function store(StoreWatchList $request)
     {
         $user = User::find(Auth::id());
-        $user->watch_list()->attach($request->product_version_id, ['user_id' => Auth::id(), 'created_at' => now(), 'updated_at' => now()]);
+        // attach()は重複するため、syncWithoutDetaching()に変更
+        $user->watch_list()->syncWithoutDetaching($request->product_version_id, ['user_id' => Auth::id(), 'created_at' => now(), 'updated_at' => now()]);
         $user->save();
 
         return redirect('watch_list');
