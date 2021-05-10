@@ -42,6 +42,6 @@ class ProductAffectedNotificationMail extends Mailable
             'email.notification', ['username' => $this->username, 'product_name' => $this->product_name,
                                     'product_version' => $this->product_version, 'cve' => $this->cve,
                                     'cve_id' => $this->cve_id]
-            )->subject('ウォッチ中の製品に関連する脆弱性が新たに登録されました。');
+            )->subject('【CVE Database】ウォッチ中の製品に関連する脆弱性が新たに登録されました。');
     }
 }
