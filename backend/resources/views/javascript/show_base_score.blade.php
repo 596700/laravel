@@ -1,5 +1,5 @@
 <script>
-    var baseScore = document.getElementById('base_score');
+    const baseScore = document.getElementById('base_score');
     // CVSSのBase Score値によってSeverityを書き換え
 
     if (9.0 <= baseScore.innerHTML && baseScore.innerHTML <= 10.0) {

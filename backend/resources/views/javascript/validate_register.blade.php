@@ -2,7 +2,7 @@
     window.addEventListener('load', function() {
 
         // ユーザー名バリデーション
-        var userName = document.getElementById("defaultRegisterFormUserName");
+        const userName = document.getElementById("defaultRegisterFormUserName");
         userName.addEventListener("change", function() {
             if (userName.value.length < 255) {
                 userName.setAttribute("class", "form-control is-valid");
@@ -11,10 +11,10 @@
             }
         })
 
-        var eMailAddress = document.getElementById("defaultRegisterFormEmail");
+        const eMailAddress = document.getElementById("defaultRegisterFormEmail");
 
         // メールアドレスバリデーション
-        function validateEmail(email) {
+        const validateEmail = (email) => {
             const re = /^[^\s@]+@[^\s@]+$/;
             return re.test(email);
         }
@@ -28,12 +28,12 @@
         })
 
         // パスワードバリデーション
-        function validatePassword(password) {
+        const validatePassword = (password) => {
             const re = /^([a-zA-Z0-9!-/:-@¥[-`{-~]{8,})+$/;
             return re.test(password);
         }
 
-        var password = document.getElementById("defaultRegisterFormPassword");
+        const password = document.getElementById("defaultRegisterFormPassword");
 
         password.addEventListener("change", function() {
             if (validatePassword(password.value)) {
@@ -43,7 +43,7 @@
             }
         })
 
-        var passwordConfirmation = document.getElementById("defaultRegisterFormPasswordConfirmation");
+        const passwordConfirmation = document.getElementById("defaultRegisterFormPasswordConfirmation");
         // 同値チェック
         passwordConfirmation.addEventListener("change", function() {
             if (passwordConfirmation.value.length >= 8 && passwordConfirmation.value === password

@@ -1,7 +1,7 @@
 <script>
     function showPassword() {
-        var passwordForm = document.getElementById("defaultRegisterFormPassword");
-        var passwordConfirmationForm = document.getElementById("defaultRegisterFormPasswordConfirmation");
+        const passwordForm = document.getElementById("defaultRegisterFormPassword");
+        const passwordConfirmationForm = document.getElementById("defaultRegisterFormPasswordConfirmation");
 
         if (passwordForm.type === "password") {
             passwordForm.type = "text";
