@@ -1,9 +1,9 @@
 <script>
-    var baseScore = document.getElementsByClassName('base_score');
+    const baseScore = document.getElementsByClassName('base_score');
     // CVSSのBase Score値によってSeverityを書き換え
     
     for (i = 0; i < baseScore.length; i++) {
-        var score = baseScore[i].innerHTML;
+        const score = baseScore[i].innerHTML;
 
         if (9.0 <= score && score <= 10.0) {
             score += ' <span id="cvss_severity" class="badge badge-dark">Critical</span>';
