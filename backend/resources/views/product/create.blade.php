@@ -18,30 +18,41 @@
 
                     <div class="form-group row">
                         <input type="text" id="defaultSaveFormProductName" class="form-control" placeholder="製品名"
-                            value="{{ old('name') }}" name="name">
-
-                        <small id="defaultRegisterFormProductHelpBlock"
-                            class="form-text text-muted mb-4">製品名は英数字記号(-_)にしてください</small>
+                            value="{{ old('name') }}" name="name" required>
+                        <small id="defaultSaveFormProductHelpBlock" class="form-text text-muted">製品名は半角英数字記号スペース(-_
+                            )にしてください。</small>
+                        <div class="invalid-feedback">製品名は半角英数字記号スペース(-_ )にしてください。</div>
                     </div>
 
                     <div class="form-group row">
                         <input type="text" id="defaultSaveFormVendorURL" class="form-control" placeholder="ベンダURL"
-                            value="{{ old('vendor_url') }}" name="vendor_url">
+                            value="{{ old('vendor_url') }}" name="vendor_url" required>
+                        <small id="defaultSaveFormVendorURLHelpBlock"
+                            class="form-text text-muted">
+                            ベンダURLはアクセス可能な正しいURLにしてください。<br />
+                            例(https://www.google.com/)
+                        </small>
+                        <div class="invalid-feedback">
+                            ベンダURLはアクセス可能な正しいURLにしてください。<br />
+                            例(https://www.google.com/)
+                        </div>
                     </div>
 
                     <div class="form-group row">
-                        <select class="browser-default custom-select" id="select" name="part" required>
-                            <option value="" disabled selected>Choose your option</option>
+                        <select class="browser-default custom-select" id="defaultSaveFormPart" name="part" required>
+                            <option value="" disabled selected>選択肢を選んでください</option>
                             <option value="Hardware">Hardware</option>
                             <option value="Operating System">Operating System</option>
                             <option value="Application">Application</option>
                         </select>
+                        <div class="invalid-feedback">適切な選択肢を選んでください。</div>
                     </div>
 
-                    <button class="btn btn-info btn-block" type="submit">Save</button>
+                    <button class="btn btn-info btn-block" type="submit" id="defaultSaveButton" disabled>Save</button>
                 </form>
             </div>
         </div>
     </div>
+    @include('javascript.validate_product')
 
 @endsection
