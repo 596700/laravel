@@ -12,6 +12,7 @@
             } else {
                 userNameHelper.remove();
                 this.setAttribute("class", "form-control is-invalid");
+                checkStatus(userName, eMailAddress, password, passwordConfirmation);
             }
         })
 
@@ -31,6 +32,7 @@
             } else {
                 eMailAddressHelper.remove();
                 this.setAttribute("class", "form-control is-invalid");
+                checkStatus(userName, eMailAddress, password, passwordConfirmation);
             }
         })
 
@@ -50,6 +52,7 @@
             } else {
                 passwordHelper.remove();
                 this.setAttribute("class", "form-control is-invalid");
+                checkStatus(userName, eMailAddress, password, passwordConfirmation);
             }
         })
 
@@ -65,6 +68,7 @@
             } else {
                 passwordConfirmationHelper.remove();
                 this.setAttribute("class", "form-control is-invalid");
+                checkStatus(userName, eMailAddress, password, passwordConfirmation);
             }
         })
 
@@ -77,6 +81,12 @@
             element_4.classList.contains("is-valid")
             ) {
                 saveButton.removeAttribute("disabled");   
+            } else if (element_1.classList.contains("is-valid") ||
+            element_2.classList.contains("is-valid") ||
+            element_3.classList.contains("is-valid") ||
+            element_4.classList.contains("is-valid")
+            ) {
+                saveButton.setAttribute("disabled", true);
             }
         }
     })

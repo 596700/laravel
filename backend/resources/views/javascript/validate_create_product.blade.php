@@ -17,6 +17,7 @@
             } else {
                 productNameHelper.remove();
                 this.setAttribute("class", "form-control is-invalid");
+                checkStatus(productName, vendorUrl, part);
             }
         })
 
@@ -37,6 +38,7 @@
             } else {
                 vendorUrlHelper.remove();
                 this.setAttribute("class", "form-control is-invalid");
+                checkStatus(productName, vendorUrl, part);
             }
         })
 
@@ -49,6 +51,7 @@
                 checkStatus(productName, vendorUrl, part);
             } else {
                 this.setAttribute("class", "form-control is-invalid");
+                checkStatus(productName, vendorUrl, part);
             }
         })
 
@@ -60,6 +63,11 @@
             element_3.classList.contains("is-valid")
             ) {
                 saveButton.removeAttribute("disabled");   
+            } else if (element_1.classList.contains("is-valid") ||
+            element_2.classList.contains("is-valid") ||
+            element_3.classList.contains("is-valid")
+            ) {
+                saveButton.setAttribute("disabled", true);
             }
         }
     })
