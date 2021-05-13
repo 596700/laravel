@@ -3,15 +3,17 @@
 
         // ユーザー名バリデーション
         const userName = document.getElementById("defaultRegisterFormUserName");
+        const userNameHelper = document.getElementById("defaultRegisterFormUserNameHelpBlock");
+
         userName.addEventListener("change", function() {
-            if (userName.value.length <= 30) {
-                userName.setAttribute("class", "form-control is-valid");
+            if (this.value.length <= 30) {
+                this.setAttribute("class", "form-control is-valid");
+                checkStatus(userName, eMailAddress, password, passwordConfirmation);
             } else {
-                userName.setAttribute("class", "form-control is-invalid");
+                userNameHelper.remove();
+                this.setAttribute("class", "form-control is-invalid");
             }
         })
-
-        const eMailAddress = document.getElementById("defaultRegisterFormEmail");
 
         // メールアドレスバリデーション
         const validateEmail = (email) => {
@@ -19,11 +21,16 @@
             return re.test(email);
         }
 
+        const eMailAddress = document.getElementById("defaultRegisterFormEmail");
+        const eMailAddressHelper = document.getElementById("defaultRegisterFormEmailHelpBlock");
+
         eMailAddress.addEventListener("change", function() {
-            if (validateEmail(eMailAddress.value)) {
-                eMailAddress.setAttribute("class", "form-control is-valid");
+            if (validateEmail(this.value)) {
+                this.setAttribute("class", "form-control is-valid");
+                checkStatus(userName, eMailAddress, password, passwordConfirmation);
             } else {
-                eMailAddress.setAttribute("class", "form-control is-invalid");
+                eMailAddressHelper.remove();
+                this.setAttribute("class", "form-control is-invalid");
             }
         })
 
@@ -34,25 +41,44 @@
         }
 
         const password = document.getElementById("defaultRegisterFormPassword");
+        const passwordHelper = document.getElementById("defaultRegisterFormPasswordHelpBlock");
 
         password.addEventListener("change", function() {
-            if (validatePassword(password.value)) {
-                password.setAttribute("class", "form-control is-valid");
+            if (validatePassword(this.value)) {
+                this.setAttribute("class", "form-control is-valid");
+                checkStatus(userName, eMailAddress, password, passwordConfirmation);
             } else {
-                password.setAttribute("class", "form-control is-invalid");
+                passwordHelper.remove();
+                this.setAttribute("class", "form-control is-invalid");
             }
         })
 
-        const passwordConfirmation = document.getElementById("defaultRegisterFormPasswordConfirmation");
         // 同値チェック
+        const passwordConfirmation = document.getElementById("defaultRegisterFormPasswordConfirmation");
+        const passwordConfirmationHelper = document.getElementById("defaultRegisterFormPasswordConfirmationHelpBlock");
+
         passwordConfirmation.addEventListener("change", function() {
-            if (passwordConfirmation.value.length >= 8 && passwordConfirmation.value === password
+            if (this.value.length >= 8 && this.value === password
                 .value) {
-                passwordConfirmation.setAttribute("class", "form-control is-valid");
+                    this.setAttribute("class", "form-control is-valid");
+                    checkStatus(userName, eMailAddress, password, passwordConfirmation);
             } else {
-                passwordConfirmation.setAttribute("class", "form-control is-invalid");
+                passwordConfirmationHelper.remove();
+                this.setAttribute("class", "form-control is-invalid");
             }
         })
+
+        const saveButton = document.getElementById("defaultRegisterButton");
+        // 入力値チェック後ボタン有効化
+        const checkStatus = (element_1, element_2, element_3, element_4) => {
+            if (element_1.classList.contains("is-valid") &&
+            element_2.classList.contains("is-valid") &&
+            element_3.classList.contains("is-valid") &&
+            element_4.classList.contains("is-valid")
+            ) {
+                saveButton.removeAttribute("disabled");   
+            }
+        }
     })
 
 </script>
