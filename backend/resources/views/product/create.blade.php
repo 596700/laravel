@@ -53,6 +53,6 @@
             </div>
         </div>
     </div>
-    @include('javascript.validate_product')
+    @include('javascript.validate_create_product')
 
 @endsection
