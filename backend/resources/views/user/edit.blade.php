@@ -22,17 +22,19 @@
                     <div class="form-group row">
                         <input type="text" id="defaultUpdateFormUserName" class="form-control" placeholder="ユーザ名"
                             value="{{ $user->name }}" name="name" required>
-                        <div class="invalid-feedback">ユーザー名は1文字以上30文字以下で入力してください。</div>
                         <small id="defaultUpdateFormUserNameHelpBlock"
                             class="form-text text-muted">ユーザー名は1文字以上30文字以下で入力してください。</small>
+                        <div class="valid-feedback">適切なユーザー名の形式となっています。</div>
+                        <div class="invalid-feedback">ユーザー名は1文字以上30文字以下で入力してください。</div>
                     </div>
 
                     <div class="form-group row">
                         <input type="text" id="defaultUpdateFormEmail" class="form-control" placeholder="メールアドレス"
                             value="{{ $user->email }}" name="email" required>
-                        <div class="invalid-feedback">ご自身の有効なメールアドレス(例:username@domain.xyz)を入力してください。</div>
                         <small id="defaultUpdateFormEmailHelpBlock"
                             class="form-text text-muted">ご自身の有効なメールアドレス(例:username@domain.xyz)を入力してください。</small>
+                        <div class="valid-feedback">適切なメールアドレスの形式となっています。</div>
+                        <div class="invalid-feedback">ご自身の有効なメールアドレス(例:username@domain.xyz)を入力してください。</div>
                     </div>
 
 
