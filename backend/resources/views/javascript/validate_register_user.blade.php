@@ -7,6 +7,7 @@
 
         userName.addEventListener("change", function() {
             if (this.value.length <= 30) {
+                userNameHelper.remove();
                 this.setAttribute("class", "form-control is-valid");
                 checkStatus(userName, eMailAddress, password, passwordConfirmation);
             } else {
@@ -27,6 +28,7 @@
 
         eMailAddress.addEventListener("change", function() {
             if (validateEmail(this.value)) {
+                eMailAddressHelper.remove();
                 this.setAttribute("class", "form-control is-valid");
                 checkStatus(userName, eMailAddress, password, passwordConfirmation);
             } else {
@@ -47,6 +49,7 @@
 
         password.addEventListener("change", function() {
             if (validatePassword(this.value)) {
+                passwordHelper.remove();
                 this.setAttribute("class", "form-control is-valid");
                 checkStatus(userName, eMailAddress, password, passwordConfirmation);
             } else {
@@ -63,6 +66,7 @@
         passwordConfirmation.addEventListener("change", function() {
             if (this.value.length >= 8 && this.value === password
                 .value) {
+                    passwordConfirmationHelper.remove();
                     this.setAttribute("class", "form-control is-valid");
                     checkStatus(userName, eMailAddress, password, passwordConfirmation);
             } else {

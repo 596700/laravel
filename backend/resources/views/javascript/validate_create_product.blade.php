@@ -12,6 +12,7 @@
 
         productName.addEventListener("change", function() {
             if (validateProductName(this.value)) {
+                productNameHelper.remove();
                 this.setAttribute("class", "form-control is-valid");
                 checkStatus(productName, vendorUrl, part);
             } else {
@@ -33,6 +34,7 @@
 
         vendorUrl.addEventListener("change", function() {
             if (validateVendorUrl(this.value)) {
+                vendorUrlHelper.remove();
                 this.setAttribute("class", "form-control is-valid");
                 checkStatus(productName, vendorUrl, part);
             } else {
