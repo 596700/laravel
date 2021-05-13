@@ -67,5 +67,5 @@
             </div>
         </div>
     </div>
-    @include('javascript.validate_register')
+    @include('javascript.validate_register_user')
 @endsection
