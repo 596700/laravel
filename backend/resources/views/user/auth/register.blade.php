@@ -20,7 +20,7 @@
                     <div class="form-group row">
                         <input type="text" id="defaultRegisterFormUserName" class="form-control" placeholder="ユーザー名"
                             name="name" value="{{ old('name') }}" max="255" required>
-                        <div class="invalid-feedback">ユーザー名は1文字以上255文字以下で入力してください。</div>
+                        <div class="invalid-feedback">ユーザー名は1文字以上30文字以下で入力してください。</div>
                     </div>
 
                     <div class="form-group row">

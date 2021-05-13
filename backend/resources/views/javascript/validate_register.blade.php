@@ -4,7 +4,7 @@
         // ユーザー名バリデーション
         const userName = document.getElementById("defaultRegisterFormUserName");
         userName.addEventListener("change", function() {
-            if (userName.value.length < 255) {
+            if (userName.value.length <= 30) {
                 userName.setAttribute("class", "form-control is-valid");
             } else {
                 userName.setAttribute("class", "form-control is-invalid");
