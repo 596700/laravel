@@ -7,6 +7,7 @@
 
         userName.addEventListener("change", function() {
             if (this.value.length <= 30) {
+                userNameHelper.remove();
                 this.setAttribute("class", "form-control is-valid");
                 checkStatus(userName, eMailAddress);
             } else {
@@ -27,6 +28,7 @@
 
         eMailAddress.addEventListener("change", function() {
             if (validateEmail(this.value)) {
+                eMailAddressHelper.remove();
                 this.setAttribute("class", "form-control is-valid");
                 checkStatus(userName, eMailAddress);
             } else {
