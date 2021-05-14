@@ -19,7 +19,7 @@
                     <div class="form-group row">
                         <input type="text" id="defaultSaveFormProductName" class="form-control" placeholder="製品名"
                             value="{{ old('name') }}" name="name" required>
-                        <small id="defaultSaveFormProductHelpBlock" class="form-text text-muted">製品名は半角英数字記号スペース(-_
+                        <small id="defaultSaveFormProductNameHelpBlock" class="form-text text-muted">製品名は半角英数字記号スペース(-_
                             )にしてください。</small>
                         <div class="valid-feedback">適切な製品名の形式となっています。</div>
                         <div class="invalid-feedback">製品名は半角英数字記号スペース(-_ )にしてください。</div>

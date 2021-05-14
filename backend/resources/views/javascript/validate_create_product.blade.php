@@ -8,7 +8,7 @@
         }
 
         const productName = document.getElementById("defaultSaveFormProductName");
-        const productNameHelper = document.getElementById("defaultSaveFormProductHelpBlock");
+        const productNameHelper = document.getElementById("defaultSaveFormProductNameHelpBlock");
 
         productName.addEventListener("change", function() {
             if (validateProductName(this.value)) {
