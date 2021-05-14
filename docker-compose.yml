@@ -23,6 +23,7 @@ services:
     volumes:
       - ./backend:/work
     working_dir: /work
+    tty: true
 
 volumes:
   db-store:
