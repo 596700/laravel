@@ -37,11 +37,14 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js">
     </script>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-
-    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+    <script>
+        $(window).on('load resize', function() {
+            // navbarの高さを取得する
+            var height = $('.navbar').height();
+            // bodyのpaddingにnavbarの高さを設定する
+            $('body').css('padding-top', height);
+        });
+    </script>
 </body>
 
 </html>
