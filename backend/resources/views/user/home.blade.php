@@ -6,12 +6,31 @@
 
     @include('layouts.nav')
 
+    <img src="images/top.jpeg" class="img-fluid d-block mx-auto" alt="Responsive image"
+        style="width: 100%; object-fit: cover;">
+
     <div class="container">
+
         <div class="row justify-content-center">
             <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
+
+                <p class="text-left">最新のCVE情報</p>
+
+                <div class="d-flex">
+                    <a class="twitter-timeline" data-width="50%" data-height="800" data-theme="dark"
+                        href="https://twitter.com/CVEnew?ref_src=twsrc%5Etfw">Tweets by CVEnew</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+                    <a class="twitter-timeline" data-width="50%" data-height="800" data-theme="dark"
+                        href="https://twitter.com/CVEannounce?ref_src=twsrc%5Etfw">Tweets by
+                        CVEannounce</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+
+                <br />
                 @if ($products->count())
                     <p class="text-left">最近登録された製品(最大5件)</p>
-                    <div class="table-responsive-sm text-nowrap">
+                    <div class="table-responsive-sm">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -42,7 +61,7 @@
 
                 @if ($versions->count())
                     <p class="text-left">最近登録されたバージョン(最大5件)</p>
-                    <div class="table-responsive-sm text-nowrap">
+                    <div class="table-responsive-sm">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -67,7 +86,7 @@
 
                 @if ($product_versions->count())
                     <p class="text-left">最近登録された製品/バージョン(最大10件)</p>
-                    <div class="table-responsive-sm text-nowrap">
+                    <div class="table-responsive-sm">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -92,7 +111,7 @@
 
                 @if ($vulnerabilities->count())
                     <p class="text-left">最近登録されたCVE(最大20件)</p>
-                    <div class="table-responsive-xl text-nowrap">
+                    <div class="table-responsive-xl">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
