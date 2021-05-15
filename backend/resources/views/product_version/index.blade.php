@@ -8,6 +8,7 @@
 
     <div class="container">
         @include('layouts.error_card_list')
+        @include('layouts.flash_message')
 
         <div class="d-flex justify-content-end">
             <form class="form-inline d-flex float-right md-form form-sm mt-0"

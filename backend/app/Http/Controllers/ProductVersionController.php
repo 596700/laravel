@@ -88,7 +88,7 @@ class ProductVersionController extends Controller
         $product_version->user_id = Auth::id();
         $product_version->save();
 
-        return redirect('product_version');
+        return redirect('product_version')->with('flash_message', '登録が完了しました。');
     }
 
     /**
@@ -114,8 +114,8 @@ class ProductVersionController extends Controller
      */
     public function edit(ProductVersion $productVersion)
     {
-        $products = Product::all();
-        $versions = Version::all();
+        $products = Product::orderBy('name', 'asc')->get();
+        $versions = Version::orderBy('version', 'asc')->get();
         return view('product_version/edit', ['product_version' => $productVersion, 'products' => $products, 'versions' => $versions]);
     }
 
@@ -130,7 +130,7 @@ class ProductVersionController extends Controller
     {
         $productVersion->fill($request->all())->save();
 
-        return redirect('product_version')->back()->withInput();
+        return redirect('product_version')->with('flash_message', '編集が完了しました。');
     }
 
     /**
@@ -143,6 +143,6 @@ class ProductVersionController extends Controller
     {
         $productVersion->delete();
 
-        return redirect('product_version');
+        return redirect('product_version')->with('flash_message', '削除が完了しました。');
     }
 }

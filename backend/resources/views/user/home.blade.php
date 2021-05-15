@@ -10,6 +10,7 @@
         style="width: 100%; object-fit: cover;">
 
     <div class="container">
+        @include('layouts.flash_message')
 
         <div class="row justify-content-center">
             <div class="mx-auto col col-12 col-sm-12 col-md-11 col-lg-10 col-xl-9">

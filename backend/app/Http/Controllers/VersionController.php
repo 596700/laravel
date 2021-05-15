@@ -69,7 +69,7 @@ class VersionController extends Controller
         $version->user_id = Auth::id();
         $version->save();
 
-        return redirect('version');
+        return redirect('version')->with('flash_message', '登録が完了しました。');
     }
 
     /**
@@ -105,7 +105,7 @@ class VersionController extends Controller
     {
         $version->fill($request->all())->save();
 
-        return redirect('version');
+        return redirect('version')->with('flash_message', '編集が完了しました。');
     }
 
     /**
@@ -118,6 +118,6 @@ class VersionController extends Controller
     {
         $version->delete();
 
-        return redirect('version');
+        return redirect('version')->with('flash_message', '削除が完了しました。');
     }
 }
