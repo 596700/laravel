@@ -85,10 +85,10 @@
             element_4.classList.contains("is-valid")
             ) {
                 saveButton.removeAttribute("disabled");   
-            } else if (element_1.classList.contains("is-valid") ||
-            element_2.classList.contains("is-valid") ||
-            element_3.classList.contains("is-valid") ||
-            element_4.classList.contains("is-valid")
+            } else if (element_1.classList.contains("is-invalid") ||
+            element_2.classList.contains("is-invalid") ||
+            element_3.classList.contains("is-invalid") ||
+            element_4.classList.contains("is-invalid")
             ) {
                 saveButton.setAttribute("disabled", true);
             }
