@@ -24,26 +24,47 @@
                         <strong>{{ $product_version->product->name }}</strong>/<strong>{{ $product_version->version->version }}</strong>
                     </p>
 
-                    <select class="browser-default custom-select" id="select" name="product_id" required>
-                        <option value="" disabled selected>製品を選択してください</option>
-                        @foreach ($products as $product)
-                            <option value="{{ $product->id }}">{{ $product->name }}</option>
-                        @endforeach
-                    </select>
+                    <div class="form-group row">
+                        <select class="browser-default custom-select" id="defaultUpdateFormProduct" name="product_id"
+                            required>
+                            <option value="" disabled>製品</option>
+                            @foreach ($products as $product)
+                                @if ($product->id === $product_version->product->id)
+                                    <option value="{{ $product->id }}" selected>
+                                        {{ $product_version->product->name }}</option>
+                                @else
+                                    <option value="{{ $product->id }}">{{ $product->name }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                        <small id="defaultUpdateFormProductHelpBlock" class="form-text text-muted">製品を選択してください。</small>
+                        <div class="valid-feedback">製品が選択されました。</div>
+                    </div>
 
-                    <select class="browser-default custom-select" id="select" name="version_id" required>
-                        <option value="" disabled selected>バージョンを選択してください</option>
-                        @foreach ($versions as $version)
-                            <option value="{{ $version->id }}">{{ $version->version }}</option>
-                        @endforeach
-                    </select>
+                    <div class="form-group row">
+                        <select class="browser-default custom-select" id="defaultUpdateFormVersion" name="version_id"
+                            required>
+                            <option value="" disabled>バージョン</option>
+                            @foreach ($versions as $version)
+                                @if ($version->id === $product_version->version->id)
+                                    <option value="{{ $version->id }}" selected>{{ $version->version }}</option>
+                                @else
+                                    <option value="{{ $version->id }}">{{ $version->version }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                        <small id="defaultUpdateFormVersionHelpBlock" class="form-text text-muted">バージョンを選択してください。</small>
+                        <div class="valid-feedback">バージョン選択されました。</div>
+                    </div>
 
-                    <button class="btn btn-info btn-block" type="submit">Save</button>
+                    <button class="btn btn-info btn-block" type="submit" id="defaultUpdateButton">Update</button>
 
                 </form>
 
             </div>
         </div>
     </div>
+
+    @include('javascript.validate_update_product_version')
 
 @endsection
