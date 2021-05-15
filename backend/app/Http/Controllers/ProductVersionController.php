@@ -114,8 +114,8 @@ class ProductVersionController extends Controller
      */
     public function edit(ProductVersion $productVersion)
     {
-        $products = Product::all();
-        $versions = Version::all();
+        $products = Product::orderBy('name', 'asc')->get();
+        $versions = Version::orderBy('version', 'asc')->get();
         return view('product_version/edit', ['product_version' => $productVersion, 'products' => $products, 'versions' => $versions]);
     }
 
