@@ -8,7 +8,7 @@
         }
 
         const versionName = document.getElementById("defaultSaveFormVersionName");
-        const versionNameHelper = document.getElementById("defaultRegisterFormVersionHelpBlock");
+        const versionNameHelper = document.getElementById("defaultSaveFormVersionHelpBlock");
 
         versionName.addEventListener("change", function() {
             if (validateVersionName(this.value)) {
@@ -28,7 +28,7 @@
             if (element_1.classList.contains("is-valid")
             ) {
                 saveButton.removeAttribute("disabled");   
-            } else if (element_1.classList.contains("is-valid")
+            } else if (element_1.classList.contains("is-invalid")
             ) {
                 saveButton.setAttribute("disabled", true);
             }
