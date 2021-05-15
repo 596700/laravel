@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpdateUser;
 use App\Models\ProductVersion;
 use App\Models\User;
+use GuzzleHttp\RedirectMiddleware;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -79,7 +80,7 @@ class UserController extends Controller
     {
         $user->fill($request->all())->save();
 
-        return back();
+        return back()->with('flash_message', '編集が完了しました。');
     }
 
     /**
@@ -92,5 +93,7 @@ class UserController extends Controller
     {
         // $user = User::find($request->input('id'));
         $user->delete();
+
+        return redirect('/')->with('flash_message', '削除が完了しました。');
     }
 }
