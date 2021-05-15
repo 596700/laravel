@@ -118,6 +118,6 @@ class VersionController extends Controller
     {
         $version->delete();
 
-        return redirect('version');
+        return redirect('version')->with('flash_message', '削除が完了しました。');
     }
 }

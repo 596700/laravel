@@ -143,6 +143,6 @@ class ProductVersionController extends Controller
     {
         $productVersion->delete();
 
-        return redirect('product_version');
+        return redirect('product_version')->with('flash_message', '削除が完了しました。');
     }
 }

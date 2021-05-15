@@ -120,6 +120,6 @@ class ProductController extends Controller
     {
         $product->delete();
         
-        return redirect('product');
+        return redirect('product')->with('flash_message', '削除が完了しました。');
     }
 }
