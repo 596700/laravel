@@ -6,7 +6,7 @@
 
     @include('layouts.nav')
 
-    @include('javascript.show_password')
+    @include('javascript.show_password_register')
 
     @include('layouts.error_card_list')
     <div class="container">

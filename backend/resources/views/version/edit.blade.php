@@ -19,16 +19,21 @@
 
                     <p class="h4 mb-4 text-center">バージョン編集</p>
 
-                    <input type="text" id="defaultSaveFormVersion" class="form-control" placeholder="バージョン名"
+                    <input type="text" id="defaultUpdateFormVersionName" class="form-control" placeholder="バージョン名"
                         value="{{ $version->version }}" name="version">
-                    <br />
+                    <small id="defaultUpdateFormVersionNameHelpBlock"
+                        class="form-text text-muted mb-4">バージョン名は英数字記号(-.)にしてください</small>
+                    <div class="valid-feedback">適切なバージョン名の形式となっています。</div>
+                    <div class="invalid-feedback">バージョン名は半角英数字記号(-.)にしてください。</div>
 
-                    <button class="btn btn-info btn-block" type="submit">Save</button>
+
+                    <button class="btn btn-info btn-block" type="submit" id="defaultUpdateButton">Update</button>
 
                 </form>
 
             </div>
         </div>
     </div>
+    @include('javascript.validate_update_version')
 
 @endsection
