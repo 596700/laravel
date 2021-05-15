@@ -88,7 +88,7 @@ class ProductVersionController extends Controller
         $product_version->user_id = Auth::id();
         $product_version->save();
 
-        return redirect('product_version');
+        return redirect('product_version')->with('flash_message', '登録が完了しました。');
     }
 
     /**
@@ -130,7 +130,7 @@ class ProductVersionController extends Controller
     {
         $productVersion->fill($request->all())->save();
 
-        return redirect('product_version')->back()->withInput();
+        return redirect('product_version')->with('flash_message', '編集が完了しました。');
     }
 
     /**
