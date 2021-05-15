@@ -70,7 +70,7 @@ class ProductController extends Controller
         $product->user_id = Auth::id();
         $product->save();
 
-        return redirect('product');
+        return redirect('product')->with('flash_message', '登録が完了しました。');
     }
 
     /**
@@ -107,7 +107,7 @@ class ProductController extends Controller
     {
         $product->fill($request->all())->save();
 
-        return redirect('product');
+        return redirect('product')->with('flash_message', '編集が完了しました。');
     }
 
     /**
