@@ -17,27 +17,36 @@
                     <p class="h4 mb-4 text-center">製品/バージョン登録</p>
 
                     <div class="form-group row">
-                        <select class="browser-default custom-select" id="select" name="product_id" required>
-                            <option value="" disabled selected>製品を選択してください</option>
+                        <select class="browser-default custom-select" id="defaultSaveFormProduct" name="product_id"
+                            required>
+                            <option value="" disabled selected>製品</option>
                             @foreach ($products as $product)
                                 <option value="{{ $product->id }}">{{ $product->name }}</option>
                             @endforeach
                         </select>
+                        <small id="defaultSaveFormProductHelpBlock" class="form-text text-muted">製品を選択してください。</small>
+                        <div class="valid-feedback">製品が選択されました。</div>
                     </div>
 
                     <div class="form-group row">
-                        <select class="browser-default custom-select" id="select" name="version_id" required>
-                            <option value="" disabled selected>バージョンを選択してください</option>
+                        <select class="browser-default custom-select" id="defaultSaveFormVersion" name="version_id"
+                            required>
+                            <option value="" disabled selected>バージョン</option>
                             @foreach ($versions as $version)
                                 <option value="{{ $version->id }}">{{ $version->version }}</option>
                             @endforeach
                         </select>
+                        <small id="defaultSaveFormVersionHelpBlock" class="form-text text-muted">バージョンを選択してください。</small>
+                        <div class="valid-feedback">バージョン選択されました。</div>
                     </div>
 
-                    <button class="btn btn-info btn-block" type="submit">Save</button>
+                    <button class="btn btn-info btn-block" type="submit" id="defaultSaveButton" disabled>Save</button>
                 </form>
             </div>
         </div>
     </div>
+
+    @include('javascript.validate_create_product_version')
+    
 
 @endsection

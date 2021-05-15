@@ -22,7 +22,7 @@
                     <input type="text" id="defaultUpdateFormVersionName" class="form-control" placeholder="バージョン名"
                         value="{{ $version->version }}" name="version">
                     <small id="defaultUpdateFormVersionNameHelpBlock"
-                        class="form-text text-muted mb-4">バージョン名は英数字記号(-.)にしてください</small>
+                        class="form-text text-muted mb-4">バージョン名は英数字記号(-.)にしてください。</small>
                     <div class="valid-feedback">適切なバージョン名の形式となっています。</div>
                     <div class="invalid-feedback">バージョン名は半角英数字記号(-.)にしてください。</div>
 
