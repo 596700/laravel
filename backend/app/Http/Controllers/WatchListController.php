@@ -68,7 +68,9 @@ class WatchListController extends Controller
      */
     public function create()
     {
-        $product_versions = ProductVersion::all();
+        // $product_versions = ProductVersion::all();
+        $product_versions = ProductVersion::with(['product', 'version'])->get();
+        $product_versions = $product_versions->sortBy('version.version')->sortBy('product.name')->values();
 
         return view('watch_list/create', ['product_versions' => $product_versions]);
     }
