@@ -7,6 +7,8 @@
     @include('layouts.nav')
 
     <div class="container">
+        @include('layouts.error_card_list')
+        @include('layouts.flash_message')
 
         <div class="d-flex justify-content-end">
             <a href="{{ route('watch_list.create') }}"><button type="button" class="btn btn-outline-primary btn-sm">ウォッチリスト登録</button></a>

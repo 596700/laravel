@@ -17,6 +17,7 @@
                             <th scope="col">更新日時</th>
                             <th scope="col">作成者</th>
                             @auth
+                                <th scope="col">登録</th>
                                 @if (Auth::user()->role === 'admin' || $product_version->user == Auth::user())
                                     <th scope="col">編集</th>
                                     <th scope="col">削除</th>
@@ -32,6 +33,14 @@
                             <td>{{ $product_version->updated_at }}</td>
                             <td>{{ $product_version->user->name }}</td>
                             @auth
+                                <td>
+                                    <form method="POST" action="{{ route('watch_list.store') }}" id="watch_list_store">
+                                        @csrf
+                                        <input type="hidden" name="product_version_id" value="{{ $product_version->id }}">
+                                        <a
+                                            href="javascript:watch_list_store.submit()"><i class="far fa-eye"></i></a>
+                                    </form>
+                                </td>
                                 @if (Auth::user()->role === 'admin' || $product_version->user == Auth::user())
                                     <td><a
                                             href="{{ route('product_version.edit', ['product_version' => $product_version->id]) }}"><button><i
@@ -82,12 +91,12 @@
                         <tr>
                             <td colspan="7">
                                 @if (!empty($vulnerabilities))
-                                <p class="text-wrap">
-                                    @foreach ($vulnerabilities as $vulnerability)
-                                        <a
-                                            href="{{ route('vulnerability.show', ['vulnerability' => $vulnerability->id]) }}">{{ $vulnerability->cve_id }}</a>
-                                    @endforeach
-                                </p>
+                                    <p class="text-wrap">
+                                        @foreach ($vulnerabilities as $vulnerability)
+                                            <a
+                                                href="{{ route('vulnerability.show', ['vulnerability' => $vulnerability->id]) }}">{{ $vulnerability->cve_id }}</a>
+                                        @endforeach
+                                    </p>
                                 @endif
 
                             </td>
