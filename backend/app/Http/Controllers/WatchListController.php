@@ -88,7 +88,7 @@ class WatchListController extends Controller
         $user->watch_list()->syncWithoutDetaching($request->product_version_id, ['user_id' => Auth::id(), 'created_at' => now(), 'updated_at' => now()]);
         $user->save();
 
-        return redirect('watch_list');
+        return redirect('watch_list')->with('flash_message', '登録が完了しました。');
     }
 
     /**
@@ -136,6 +136,6 @@ class WatchListController extends Controller
         $user = User::find(Auth::id());
         $user->watch_list()->detach($id);
 
-        return back();
+        return back()->with('flash_message', '削除が完了しました。');
     }
 }
